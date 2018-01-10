@@ -1,4 +1,5 @@
 /*mobile design*/
+@media only screen and (max-width: 400px){
 body{
 	padding:0px;
 	margin:0px;
@@ -74,3 +75,4 @@ header #date{
 	color: grey;
 }
 
+}
