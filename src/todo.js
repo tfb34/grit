@@ -1,55 +1,45 @@
 // todo.js
+/*
+ * Summary: Returns an new instance of Todo
+ * 
+*/
+export default function Todo(task,dueDate,priority){
+  this._task = task;
+  this._dueDate = dueDate;
+  this._priority = priority || "priority 4";
+  this._completion = false;
+}
 
-export default(task,dueDate,priority)=>{
+// GET functions
+Todo.prototype.getTask = function(){
+  return this._name;
+}
 
-  let priorityLevel = priority || "priority 4";
-  let completion = false;
-  let project = null; // todo does not need one
+Todo.prototype.getDueDate = function(){
+  return this._dueDate;
+}
 
-/*Show functions*/
-  const getTask=()=>{
-    return task;
-  };
+Todo.prototype.getPriority = function(){
+  return this._priority;
+}
 
-  const getDueDate=()=>{
-    return dueDate;
-  };
+Todo.prototype.getCompletion = function(){
+  return this._completion;
+}
+// EDIT functions
+Todo.prototype.changeTask = function(newTask){
+  this._task = newTask;
+}
 
-  const getPriority=()=>{
-    return priorityLevel;
-  };
+Todo.prototype.changeDueDate = function(newDueDate){
+  this._dueDate = newDueDate;
+}
 
-  const getCompletion=()=>{
-    return completion;
-  };
-
-  const getProject=()=>{
-    return project;
-  };
-/* Edit functions*/
-  const changeTask = newTask => {
-    task = newTask;
-  };
-
-  const changeDueDate= newDate=>{
-    dueDate = newDate;
-  };
-  const changeCompletion =()=>{
-    if(completion){
-      completion = false;
-    }else{
-      completion = true;
-    }
-  };
-  const changeProject=newProject=>{
-    project = newProject;
-  };
-  return{
-    task,
-    dueDate,
-    priorityLevel,
-    completion,
-    changeTask,
-    getTask
+Todo.prototype.changeCompletion = function(){
+  if(this._completion){
+    this._completion = false;
   }
-};
+  else{
+    this._completion = true;
+  }
+}
