@@ -1,74 +1,92 @@
 import Todo from './todo';
 import Project from './project';
 import projects from './allProjects';
+import showTaskForm from './showTaskForm';
+import removeForm from './removeForm';
 
-let priorities = ["priority 1", "priority 2", "priority 3", "priority 4"];
+let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
 /*DOM functions*/
 
-/*Returns a new task form*/
-
-function createTaskForm(){
-	console.log("creating form");
-	let form = document.createElement("form");
-	// task input
-	let inputTask = document.createElement("input");// task input
-	inputTask.setAttribute("type", "text");
-	inputTask.setAttribute("placeholder","Practice guitar for 30mins");
-	// priority select list
-	let selectPriority = document.createElement("select");// priority 'input'
-	selectPriority.id = "selectPriority";
-
-	for(let i = 0; i<priorities.length; i++){
-		let option = document.createElement("option");
-		option.setAttribute("value",priorities[i]);
-		option.text = priorities[i];
-		selectPriority.appendChild(option);
-	}
-	// submit button
-	let inputSubmit = document.createElement("input");
-	inputSubmit.setAttribute("type","button");
-	inputSubmit.id = "submitTaskButton";
-	inputSubmit.setAttribute("value","Add Task");
-	// cancel button
-	let cancel = document.createElement("a");
-	cancel.setAttribute("href","#");
-	cancel.innerHTML = "Cancel";
-	cancel.setAttribute("onclick","removeForm()");
-
-	// put everything together
-	form.appendChild(inputTask);
-	form.appendChild(selectPriority);
-	form.appendChild(inputSubmit);
-	form.appendChild(cancel);
-
-	return form;
-};
-
-function showForm(form){
-	console.log("showing Form");
-	document.getElementsByTagName('body')[0].appendChild(form);
-};
-
-function showTaskForm(){
-	let form = createTaskForm();
-	showForm(form);
+/*features projects as list*/
+function hideShowMenu() {
+	console.log("hideShowMenu called");
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "none") {
+        menu.style.display = "block";
+    } else {
+        menu.style.display = "none";
+    }
 }
 
-function removeForm(){
-	let body = document.getElementsByTagName('body')[0];
-	let form = document.getElementsByTagName('form')[0];
-	body.removeChild(form);
+
+// creates a DOM list of current projects
+// should be called ONCE at the start of
+// page load
+function projectDOMList(){
+	console.log("projectDOMList");
+ 	let ul = document.createElement("ul");
+ 	ul.setAttribute("id","projectList");
+ 	for(let i = 0;i<projects.list.length;i++){
+ 		let li = document.createElement("li");
+ 		li.setAttribute("id",projects.list[i].getName());
+ 		let p = document.createElement("p");
+ 		p.innerHTML = projects.list[i].getName();
+ 		li.appendChild(p);
+ 		ul.appendChild(li);
+ 	}
+ 	
+ 	let e = document.getElementById("menu");
+ 	e.appendChild(ul);
+ 	e.style.display ="none";
 }
+
+
+
+
+
+
 
 document.onreadystatechange =function(){
 	if(document.readyState === "complete"){
 		// setup add task button
 		let b = document.getElementById("AddTaskButton");
 		b.setAttribute("onclick","showTaskForm()");
+		projectDOMList();
 	}
 };
 
+/*private used by createNewTodo*/
+function validateForm(){
+	let isValid = false;
+	if(document.forms["taskForm"]["task"].value){
+		isValid = true;
+	}
+	return isValid;
+}
+
+
+function createNewTodo(){
+	if(!validateForm()){
+		console.log("not valid");
+		return;
+	}
+	//get values;
+	let task = document.forms["taskForm"]["task"].value;
+
+	let sel = document.forms["taskForm"]["selectPriority"];
+	let priority = sel.options[sel.selectedIndex].text;
+	// for now this date value will due
+	let today = new Date();
+	date = today.toDateString();
+	let todo = new Todo(task, date, priority);
+	console.log(todo);// debugging
+	return todo;
+}
 /*global scope aka available for use in index.html*/
 
 window.removeForm = removeForm;
 window.showTaskForm = showTaskForm;
+window.createNewTodo = createNewTodo;
+window.projects = projects;
+window.hideShowMenu = hideShowMenu;
+/* WORK ON PROJECT MENU*/

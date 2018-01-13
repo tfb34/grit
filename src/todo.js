@@ -6,7 +6,7 @@
 export default function Todo(task,dueDate,priority){
   this._task = task;
   this._dueDate = dueDate;
-  this._priority = priority || "priority 4";
+  this._priority = priority;
   this._completion = false;
 }
 
