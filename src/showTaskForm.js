@@ -43,7 +43,7 @@ function createTaskForm(){
 	let cancel = document.createElement("a");
 	cancel.setAttribute("href","#");
 	cancel.innerHTML = "Cancel";
-	cancel.setAttribute("onclick","removeForm()");
+	cancel.setAttribute("onclick","removeTaskForm()");
 
 	// put everything together
 	form.appendChild(inputTask);
