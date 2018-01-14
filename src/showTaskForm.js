@@ -38,7 +38,7 @@ function createTaskForm(){
 	inputSubmit.setAttribute("type","button");
 	inputSubmit.id = "submitTaskButton";
 	inputSubmit.setAttribute("value","Add Task");
-	inputSubmit.setAttribute("onclick","createNewTodo()");
+	inputSubmit.setAttribute("onclick","handleNewTodo()");
 	// cancel button
 	let cancel = document.createElement("a");
 	cancel.setAttribute("href","#");

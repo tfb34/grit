@@ -12,7 +12,7 @@ export default function Todo(task,dueDate,priority){
 
 // GET functions
 Todo.prototype.getTask = function(){
-  return this._name;
+  return this._task;
 }
 
 Todo.prototype.getDueDate = function(){

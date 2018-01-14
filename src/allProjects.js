@@ -11,15 +11,19 @@ module.exports = (
 		let list = [new Project("Shopping"), new Project("Work"), new Project("Errands"), new Project("Books to Read"), new Project("Movies to Watch")];
 
 		function add(project){
-			list.push(x);
+			list.push(project);
 		}
 
-		function find(){
-
+		function get(projectName){
+			let x = list.filter(function(p){
+				return p.getName() === projectName;
+			});
+			return x[0];
 		}
 		return{
 			list,
-			add
+			add,
+			get
 		}
 
 	}()
