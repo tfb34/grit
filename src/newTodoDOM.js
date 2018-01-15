@@ -33,10 +33,11 @@ function createNewTodo(){
 	//add new element to project
     let project = projects.get(document.getElementById("project").innerHTML);
     project.addTodo(todo);
-    updateTodoDOMList(todo)
+    updateTodoDOMList(todo);
 }
 
 function updateTodoDOMList(todo){
+    console.log("updateTodoDOMList");
     let li = document.createElement("li");
     li.setAttribute("class","clearfix todo");
 
@@ -49,4 +50,5 @@ function updateTodoDOMList(todo){
     li.appendChild(div);
     li.appendChild(p);
     document.getElementById("list").appendChild(li);
+    console.log("no problem");
 }

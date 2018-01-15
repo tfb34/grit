@@ -1,4 +1,4 @@
-import hideShowMenu from './hideShowMenu';
+import hideShow from './hideShowMenu';
 /*
     <li class="clearfix todo">
                 <div class="taskStatus"></div>
@@ -15,7 +15,7 @@ export default function renderPage(projectName){
             with current project's list
             propogateDOMtaskList()
     */
-    hideShowMenu();
+    hideShow("menu");
     let x = document.getElementById('project');
     if(x.innerHTML === projectName){
         return;

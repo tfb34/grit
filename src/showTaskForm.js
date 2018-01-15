@@ -17,6 +17,7 @@ function createTaskForm(){
 	console.log("creating form");
 	let form = document.createElement("form");
 	form.setAttribute("name","taskForm");
+	form.setAttribute("id","taskForm");
 	// task input
 	let inputTask = document.createElement("input");// task input
 	inputTask.setAttribute("name","task");

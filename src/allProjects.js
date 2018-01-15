@@ -20,10 +20,14 @@ module.exports = (
 			});
 			return x[0];
 		}
+		function last(){
+			return list[list.length-1];
+		}
 		return{
 			list,
 			add,
-			get
+			get,
+			last
 		}
 
 	}()
