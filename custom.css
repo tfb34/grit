@@ -1,6 +1,11 @@
 :root{
 	--navbar-color: orange;
+	--p4: grey;
+	--p3: yellow;
+	--p2: orange;
+	--p1: red;
 }
+
 /*mobile design*/
 @media only screen and (max-width: 450px){
 
@@ -48,6 +53,13 @@ header #date{
 	border-radius: 20px;
 	cursor: pointer;
 }
+#taskForm{
+	margin-left: 2em;
+	margin-bottom: 4em;
+}
+#selectPriority{
+	margin-left: 24%;
+}
 #list{
 	list-style: none;
 	margin-top: 0px;
@@ -64,37 +76,48 @@ header #date{
 }
 
 .taskStatus{
-	float:left;
+	/*float:left;
 	margin-top: 6px;
-	margin-right: 5%;
-	width:20px;height:20px;
-	
+	margin-right: 5%;*/
+	width:18px;height:18px;
+	margin-right: 1em;
 	border:1px solid grey;
 	border-radius: 10px;
 	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+}
+.taskStatus:hover{
+	background-color: #B2B5BE;
 }
 .clearfix{
 	overflow: auto;
+}
+.todo p{
+	display: inline-block;
+	font-size: 15px;
+	vertical-align: middle
 }
 .todo p+p{
 	font-size: 12px;
 	color: grey;
 }
-
+.navbar {
+    width: 100%;
+    background-color: var(--navbar-color);
+    position: fixed;
+    height: 2.5em;
+    z-index: 2;
+}
+#menu h4{
+	margin-left: 2em;
+	text-decoration: underline;
+}
 #menu-button{
-	/*
-	width:100%;
-	position: absolute;
-	top:10px;
-	cursor: pointer;*/
-	width: 100%;
-position: fixed;
-top: 0px;
-cursor: pointer;
-background-color: var(--navbar-color);
-padding-top: 0.7em;
-padding-bottom: 0.7em;
-z-index:2;
+	width: 50px;
+	cursor: pointer;
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
 }
 #menu-button div:nth-child(-n+3) {
     width: 1.5em;
@@ -133,11 +156,79 @@ z-index: 1;
 #AddProject{
 	color: var(--navbar-color);
 }
+#AddProject span{
+	font-weight: bold;
+	cursor: pointer;
+}
 #AddProject a{
+	margin-left: 1em;
 	text-decoration: none;
 	color: var(--navbar-color);
+	font-size: 15px;
 }
 #AddProject a:hover{
+	text-decoration: underline;
+}
+#projectForm{
+	padding-left: 2em;
+	margin-right: 2em;
+}
+.p1Color{
+	border:2px solid var(--p1);
+	background-color:rgb(219, 26, 52,0.2);
+}
+.p2Color{
+	border:2px solid var(--p2);
+	background-color:rgb(244, 166, 9,0.2);
+}
+.p3Color{
+	border:2px solid var(--p3);
+	background-color:rgb(249, 249, 84,0.2);
+}
+.p4Color{
+	border:2px solid var(--p4);
+	background-color:rgb(229, 229, 222,0.2);
+}
+.formButton{
+	background-color: var(--navbar-color);
+	color:white;
+	border: none;
+	margin-top: 0.5em;
+	margin-right: 1em;
+	margin-bottom: 2em;
+	border-radius: 5px;
+	padding: 0.7em 0.8em 0.7em 0.8em;
+	font-weight: bold;
+	cursor:pointer;
+	font-size: 13px;
+}
+/*
+#projectTextBox{
+	height: 35px;
+	border: 0.5px solid rgb(211, 205, 205);
+	border-radius: 4px;
+	width: 80%;
+	padding-left: 1em;
+}*/
+.formTextInput{
+	height: 35px;
+	border: 0.5px solid rgb(211, 205, 205);
+	border-radius: 4px;
+	width: 90%;
+	padding-left: 1em;
+}
+/*
+#projectForm a{
+	text-decoration: none;
+	color: black;
+	font-size: 13px;
+}*/
+.cancelButton{
+	text-decoration: none;
+	color: black;
+	font-size: 13px;
+}
+.cancelButton:hover{
 	text-decoration: underline;
 }
 /* <= 400px*/

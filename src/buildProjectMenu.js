@@ -59,17 +59,22 @@ function createProjectForm(){
     let textInput = document.createElement("input");
     textInput.setAttribute("type","text");
     textInput.setAttribute("name","projectName");
-
+    textInput.setAttribute("id","projectTextBox");
+    textInput.setAttribute("maxlength","30");
+    textInput.setAttribute("class","formTextInput");
+    
     let submitButton = document.createElement("input");
     submitButton.setAttribute("type","button");
     submitButton.setAttribute("id","AddProjectButton");
     submitButton.setAttribute("value","Add Project");
     submitButton.setAttribute("onclick","newProjectHandler()");
+    submitButton.setAttribute("class","formButton");
 
     let a = document.createElement("a");
     a.setAttribute("href","#");
     a.innerHTML="Cancel";
     a.setAttribute("onclick","hideShow('projectForm')");
+    a.setAttribute("class","cancelButton");
 
     form.appendChild(textInput);
     form.appendChild(submitButton);

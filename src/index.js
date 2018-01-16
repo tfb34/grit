@@ -8,12 +8,15 @@ import hideShow from './hideShowMenu';
 import handleNewTodo from './newTodoDOM';
 import newProjectHandler from './newProjectHandler';
 import buildProjectMenu from './buildProjectMenu';
-/*put a max on project Name length*/
+
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
 
 /*
-    fix navbar
+    
+    make task form look nice, mobile design
+    Then add other attributes onto DOM
+    Work on local storage
 */
 
 

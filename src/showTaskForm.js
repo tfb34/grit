@@ -23,6 +23,8 @@ function createTaskForm(){
 	inputTask.setAttribute("name","task");
 	inputTask.setAttribute("type", "text");
 	inputTask.setAttribute("placeholder","Practice guitar for 30mins");
+	inputTask.setAttribute("class","formTextInput");
+	inputTask.setAttribute("maxlength","100");
 	// priority select list
 	let selectPriority = document.createElement("select");// priority 'input'
 	selectPriority.id = "selectPriority";
@@ -40,17 +42,20 @@ function createTaskForm(){
 	inputSubmit.id = "submitTaskButton";
 	inputSubmit.setAttribute("value","Add Task");
 	inputSubmit.setAttribute("onclick","handleNewTodo()");
+	inputSubmit.setAttribute("class","formButton");
+
 	// cancel button
 	let cancel = document.createElement("a");
 	cancel.setAttribute("href","#");
 	cancel.innerHTML = "Cancel";
 	cancel.setAttribute("onclick","removeTaskForm()");
-
+	cancel.setAttribute("class","cancelButton");
 	// put everything together
 	form.appendChild(inputTask);
-	form.appendChild(selectPriority);
 	form.appendChild(inputSubmit);
 	form.appendChild(cancel);
+	form.appendChild(selectPriority);
+
 
 	return form;
 };

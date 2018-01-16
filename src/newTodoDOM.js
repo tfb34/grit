@@ -50,5 +50,24 @@ function updateTodoDOMList(todo){
     li.appendChild(div);
     li.appendChild(p);
     document.getElementById("list").appendChild(li);
-    console.log("no problem");
+    //add priority color
+    showPriority(div,todo);
+}
+
+
+function showPriority(divx,todo){
+    let div = divx.classList;
+    let p = todo.getPriority();
+
+    if(p === "priority 1"){
+        div.add("p1Color");
+    }else if(p === "priority 2"){
+        div.add("p2Color");
+    }else if(p === "priority 3"){
+        div.add("p3Color");
+    }else{
+        div.add("p4Color");
+    }
+    console.log(div);
+
 }
