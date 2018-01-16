@@ -1,4 +1,5 @@
 import hideShow from './hideShowMenu';
+import createPriorityMenu from './priorityMenu';
 /*
     <li class="clearfix todo">
                 <div class="taskStatus"></div>
@@ -43,17 +44,24 @@ function taskDOMList(projectName){
 
         let li = document.createElement("li");
         li.setAttribute("class","clearfix todo");
+        li.setAttribute("id", "todo"+i);
 
         let div = document.createElement("div");
         div.setAttribute("class","taskStatus");
+        div.setAttribute("id","status"+id);
 
         let p = document.createElement("p");
-        console.log("line 155");
+        
         p.innerHTML = todos[i].getTask();
+
+        let f = createPriorityForm();
 
         li.appendChild(div);
         li.appendChild(p);
+        li.appendChild(f);
+        
         document.getElementById("list").appendChild(li);
     }
 
 }
+

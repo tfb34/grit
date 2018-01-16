@@ -72,7 +72,7 @@ header #date{
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-right: 5px;
-	cursor: pointer;
+	
 }
 
 .taskStatus{
@@ -230,6 +230,21 @@ z-index: 1;
 }
 .cancelButton:hover{
 	text-decoration: underline;
+}
+/*priorityForm*/
+#priorityMenu{
+	width: 30px;
+	display: inline-block;
+	margin-left: 65%;
+	cursor: pointer;
+}
+#priorityMenu div{
+	height:5px; width: 5px;
+	background-color: grey;
+	float: left;
+}
+#priorityMenu div:not(:last-child){
+	margin-right: 3px;
 }
 /* <= 400px*/
 }

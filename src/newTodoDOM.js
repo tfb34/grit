@@ -1,5 +1,6 @@
 import removeTaskForm from './removeTaskForm';
 import Todo from './todo';
+import createPriorityMenuButton from './priorityMenuButton';
 
 export default function handleNewTodo(){
     if(!validateForm()){
@@ -38,23 +39,33 @@ function createNewTodo(){
 
 function updateTodoDOMList(todo){
     console.log("updateTodoDOMList");
+    /*Get identifier*/
+    let project = projects.get(document.getElementById("project").innerHTML);
+    let id = project.getTodos().length - 1;
+
     let li = document.createElement("li");
     li.setAttribute("class","clearfix todo");
+    li.setAttribute("id","todo"+id);
 
     let div = document.createElement("div");
     div.setAttribute("class","taskStatus");
+    div.setAttribute("id", "status"+id);
 
     let p = document.createElement("p");
     p.innerHTML = todo.getTask();
 
+    let f = createPriorityMenuButton();
+    
     li.appendChild(div);
     li.appendChild(p);
+    li.appendChild(f);
+    
     document.getElementById("list").appendChild(li);
     //add priority color
     showPriority(div,todo);
 }
 
-
+/*Adds color to identify level of importance*/
 function showPriority(divx,todo){
     let div = divx.classList;
     let p = todo.getPriority();

@@ -13,11 +13,17 @@ import buildProjectMenu from './buildProjectMenu';
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
 
 /*
-    
-    make task form look nice, mobile design
-    Then add other attributes onto DOM
-    Work on local storage
-*/
+    Allow user to change priority of task
+    1. create an icon to click on
+    2. when hovering over tasktext show icon
+    3.activate a listener for a click
+    4. showPriorityForm, basically 4 icons/flags/wtv
+    5.  when user clicks, call function
+    6. this.id should return what was clicked
+    7. if a flag/wtv was clicked update that element only
+
+    P.S you may need to change the id names bc all of them are the same
+
 
 
 /*window*/
