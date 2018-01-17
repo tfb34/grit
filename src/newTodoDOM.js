@@ -1,6 +1,7 @@
 import removeTaskForm from './removeTaskForm';
 import Todo from './todo';
-import createPriorityMenuButton from './priorityMenuButton';
+//import createPriorityMenuButton from './priorityMenuButton';
+import todoMenu from './todoMenu';
 
 export default function handleNewTodo(){
     if(!validateForm()){
@@ -54,10 +55,12 @@ function updateTodoDOMList(todo){
     let p = document.createElement("p");
     p.innerHTML = todo.getTask();
 
-    let f = createPriorityMenuButton();
-    
+    //let f = createPriorityMenuButton();
+    let b = todoMenu.createTodoMenuButton(id);
+    let f = todoMenu.createTodoMenu(id);
     li.appendChild(div);
     li.appendChild(p);
+    li.appendChild(b);
     li.appendChild(f);
     
     document.getElementById("list").appendChild(li);

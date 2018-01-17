@@ -30,6 +30,9 @@ Todo.prototype.getCompletion = function(){
 Todo.prototype.changeTask = function(newTask){
   this._task = newTask;
 }
+Todo.prototype.changePriority = function(newPriority){
+  this._priority = newPriority;
+}
 
 Todo.prototype.changeDueDate = function(newDueDate){
   this._dueDate = newDueDate;

@@ -4,7 +4,8 @@
 export default function hideShow(id) {
 	console.log("hideShow called");
     var x = document.getElementById(id);
-    if (x.style.display === "none") {
+    console.log("before:  "+x.style.display);
+    if (x.style.display === "none" || !x.style.display) {
     	if(id === "projectForm"){
     		clearProjectForm();
     	}
@@ -12,6 +13,7 @@ export default function hideShow(id) {
     } else {
         x.style.display = "none";
     }
+    console.log(x.style.display);
 }
 
 function clearProjectForm(){

@@ -1,5 +1,6 @@
 import hideShow from './hideShowMenu';
-import createPriorityMenu from './priorityMenu';
+import todoMenu from './todoMenu';
+//import createPriorityMenuButton from './priorityMenuButton';
 /*
     <li class="clearfix todo">
                 <div class="taskStatus"></div>
@@ -9,25 +10,19 @@ import createPriorityMenu from './priorityMenu';
 */
 export default function renderPage(projectName){
     console.log("You clicked on "+projectName);
-    /*
-        1. close menu.done
-        2. change header to project name
-        3. remove current list and propagate div
-            with current project's list
-            propogateDOMtaskList()
-    */
     hideShow("menu");
     let x = document.getElementById('project');
     if(x.innerHTML === projectName){
         return;
     }
-    cleanPage();
+    _cleanPage();
     x.innerHTML = projectName;
-    taskDOMList(projectName);
+    _displayTodos(projectName);
 
 }
 
-function cleanPage(){
+/* Private. Removes all todos/tasks from page */
+function _cleanPage(){
     let taskList = document.getElementById('list');
     while(taskList.firstChild){
         taskList.removeChild(taskList.firstChild);
@@ -35,9 +30,12 @@ function cleanPage(){
     document.getElementById('date').innerHTML = "";
 }
 
-
-function taskDOMList(projectName){
-    console.log("taskDOMList called...");
+/* 
+ *  @params: project name
+ *  Generates tags/elements in DOM to showcase todos in given 
+*/
+function _displayTodos(projectName){
+    console.log("displayTodos called...");
     let project = projects.get(projectName);
     let todos = project.getTodos();
     for(let i=0;i<todos.length;i++){
@@ -54,10 +52,13 @@ function taskDOMList(projectName){
         
         p.innerHTML = todos[i].getTask();
 
-        let f = createPriorityForm();
+        //let f = createPriorityForm();
+        let b = todoMenu.createTodoMenuButton(i);
+        let f = todoMenu.createTodoMenu();
 
         li.appendChild(div);
         li.appendChild(p);
+        li.appendChild(b);
         li.appendChild(f);
         
         document.getElementById("list").appendChild(li);
