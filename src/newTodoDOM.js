@@ -30,9 +30,8 @@ function createNewTodo(){
 	let priority = sel.options[sel.selectedIndex].text;
 	// for now this date value will due
 	let today = new Date();
-	let d = today.toDateString();
-    console.log(d);
-	let todo = new Todo(task, d, priority);
+    console.log(today.toDateString());
+	let todo = new Todo(task, today.toDateString(), priority);
     console.log(todo);
 	//add new element to project
     let project = projects.get(document.getElementById("project").innerHTML);
