@@ -8,12 +8,12 @@
 module.exports = (
 	function(){
 
-        function createTodoMenuButton(todoID){
-            let id = "todoMenu"+todoID;
-            let handler = "hideShow('"+id+"')";// problem may be here
+        function createTodoMenuButton(){//may not need todoID
+            //let id = "todoMenu"+todoID;
+            //let handler = "hideShow('"+id+"')";// problem may be here
             let outerDiv = document.createElement("div");
             outerDiv.setAttribute("class","todoMenuButton");
-            outerDiv.setAttribute("onclick",handler);
+            //outerDiv.setAttribute("onclick",handler);
 
             let innerDiv = document.createElement("div");
             let innerDiv2 = document.createElement("div");

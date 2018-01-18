@@ -8,7 +8,7 @@ import hideShow from './hideShowMenu';
 import handleNewTodo from './newTodoDOM';
 import newProjectHandler from './newProjectHandler';
 import buildProjectMenu from './buildProjectMenu';
-
+//import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
 

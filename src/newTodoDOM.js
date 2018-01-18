@@ -1,19 +1,21 @@
 import removeTaskForm from './removeTaskForm';
 import Todo from './todo';
 //import createPriorityMenuButton from './priorityMenuButton';
-import todoMenu from './todoMenu';
+//import todoMenu from './todoMenu';
+import todoDom from './todoDOM';
 
 export default function handleNewTodo(){
-    if(!validateForm()){
+    if(!_validate()){
         console.log("not valid");
         return;
     }
-    createNewTodo();
+
+    _createNewTodo();
     removeTaskForm();
 }
 
 
-function validateForm(){
+function _validate(){
 	let isValid = false;
 	if(document.forms["taskForm"]["task"].value){
 		isValid = true;
@@ -21,7 +23,7 @@ function validateForm(){
 	return isValid;
 }
 
-function createNewTodo(){
+function _createNewTodo(){
     console.log("createNewTodo");
 	//get values;
 	let task = document.forms["taskForm"]["task"].value;
@@ -38,53 +40,15 @@ function createNewTodo(){
     console.log("line39");
     project.addTodo(todo);
     console.log("line41");
-    updateTodoDOMList(todo);
+    generateTodoElement(todo);
 }
 
-function updateTodoDOMList(todo){
-    console.log("updateTodoDOMList");
+function generateTodoElement(todo){
+    console.log("generateTodoElement");
     /*Get identifier*/
     let project = projects.get(document.getElementById("project").innerHTML);
     let id = project.getTodos().length - 1;
-
-    let li = document.createElement("li");
-    li.setAttribute("class","clearfix todo");
-    li.setAttribute("id","todo"+id);
-
-    let div = document.createElement("div");
-    div.setAttribute("class","taskStatus");
-    div.setAttribute("id", "status"+id);
-
-    let p = document.createElement("p");
-    p.innerHTML = todo.getTask();
-
-    //let f = createPriorityMenuButton();
-    let b = todoMenu.createTodoMenuButton(id);
-    let f = todoMenu.createTodoMenu(id);
-    li.appendChild(div);
-    li.appendChild(p);
-    li.appendChild(b);
-    li.appendChild(f);
-    
-    document.getElementById("list").appendChild(li);
-    //add priority color
-    showPriority(div,todo);
+    todoDom.renderTodoElement(id,todo);
 }
 
-/*Adds color to identify level of importance*/
-function showPriority(divx,todo){
-    let div = divx.classList;
-    let p = todo.getPriority();
 
-    if(p === "priority 1"){
-        div.add("p1Color");
-    }else if(p === "priority 2"){
-        div.add("p2Color");
-    }else if(p === "priority 3"){
-        div.add("p3Color");
-    }else{
-        div.add("p4Color");
-    }
-    console.log(div);
-
-}
