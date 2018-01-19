@@ -15,6 +15,17 @@ module.exports = (
 			list.push(project);
 		}
 
+		function remove(project){
+			let index = 0;
+			while(index < list.length){
+				if(list[index].getName() === project.getName()){
+					break;
+				}
+				index++;
+			}
+			list.splice(index,1);
+		}
+
 		function get(projectName){
 			let x = list.filter(function(p){
 				return p.getName() === projectName;
