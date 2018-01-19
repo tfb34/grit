@@ -12,7 +12,7 @@ module.exports = (
 	        li.setAttribute("class","clearfix todo");
 	        li.setAttribute("id", "todo"+index);
 
-	        let innerDiv1 = _createBubbleWrapper();
+	        let innerDiv1 = _createBubbleWrapper(index);
 
 	        let innerDiv2 = _createTaskWrapper();
 
@@ -23,7 +23,7 @@ module.exports = (
 	        innerDiv1.appendChild(div);
 	        _addPriorityColor(div,todo);
 
-	        let p = _createTaskElement(todo);
+	        let p = _createTaskElement(index,todo);
 	        innerDiv2.appendChild(p);
 	        //let f = createPriorityForm();
 	        let b = todoMenu.createTodoMenuButton();// import
@@ -37,11 +37,14 @@ module.exports = (
 	        li.appendChild(f);
 	        
 	        document.getElementById("list").appendChild(li);
+	        _editTodoStatus(p,index,todo);
 		}
 
-		function _createBubbleWrapper(){
+		function _createBubbleWrapper(index){
 			let innerDiv1 = document.createElement("div");
 	        innerDiv1.setAttribute("class","statusWrapper");
+	        innerDiv1.setAttribute("id", "statusWrapper"+index);
+	        innerDiv1.setAttribute("onclick","toggleCompletion(this.id)");
 	        return innerDiv1;
 		}
 		function _createTaskWrapper(){
@@ -66,8 +69,10 @@ module.exports = (
 	  		_addPriorityColor
 	        return div;
 		}
-		function _createTaskElement(todo){
+		function _createTaskElement(index,todo){
 			let p = document.createElement("p");
+			let id = "task"+index;
+			p.setAttribute("id",id);
 	        p.innerHTML = todo.getTask();
 	        return p;
 		}
@@ -90,9 +95,24 @@ module.exports = (
 
 		}
 
+		/*display indication that todo has been completed*/
+		function _editTodoStatus(p,index,todo){
+			console.log("_editTodoStatus..");
+			console.log(todo.getCompletionStatus());
+			let li = document.getElementById("todo"+index);
+	        if(todo.getCompletionStatus()){//true, undo 
+        		li.style.backgroundColor = "rgb(226, 224, 224,0.5)";
+        		p.style.textDecorationLine = "line-through";
+    		}else{
+        		p.style.textDecorationLine = "none";
+        		li.style.backgroundColor = "white";
+    		}
+    		console.log(todo.getCompletionStatus());
+		}
 		/*public functions*/
 		return{
-			renderTodoElement
+			renderTodoElement,
+			
 		}
 	}()
 );

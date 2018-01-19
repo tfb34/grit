@@ -8,28 +8,61 @@ import hideShow from './hideShowMenu';
 import handleNewTodo from './newTodoDOM';
 import newProjectHandler from './newProjectHandler';
 import buildProjectMenu from './buildProjectMenu';
+import saveData from './save';
 //import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
 
-/*
-    Allow user to change priority of task
-    1. create an icon to click on
-    2. when hovering over tasktext show icon
-    3.activate a listener for a click
-    4. showPriorityForm, basically 4 icons/flags/wtv
-    5.  when user clicks, call function
-    6. this.id should return what was clicked
-    7. if a flag/wtv was clicked update that element only
-
-    P.S you may need to change the id names bc all of them are the same
-
-// onclick to each option in todoMenu, with specific id
-// when clicked -> toggleMenu and update todo status backend and frontend
-
-//onclick, toggleMenu  on todomenubutton */
+if(localStorage.getItem('projects')){
+    console.log("localStorage found");
+    projects.initialize();
+}else{
+    saveData();
+}
 
 
+
+
+//local storage works!
+// new features
+// allow user to destroy projects
+// use date-fns
+
+// think about what happens when user checks out a task
+// toggle works but when do you delete it from projects
+
+
+
+
+
+
+
+
+// get the id, look up todo, update backend, add decoration
+function toggleCompletion(id){
+    console.log("toggleComplete...");
+    console.log(id);
+    let i = getIndex(id);
+    let project = projects.get(document.getElementById('project').innerHTML);
+    console.log(project);
+    console.log(i);
+    let todo = project.getTodos()[i];
+    console.log(todo);
+    console.log(todo.getCompletionStatus());
+    let p = document.getElementById("task"+i);
+    let li = document.getElementById("todo"+i);
+    if(todo.getCompletionStatus()){//true, undo 
+        li.style.backgroundColor = "white";
+        p.style.textDecorationLine = "none";
+    }else{
+        p.style.textDecorationLine = "line-through";
+        li.style.backgroundColor = "rgb(226, 224, 224,0.5)";
+    }
+    todo.changeCompletionStatus();
+    console.log(todo.getCompletionStatus());
+}
+
+/*stays here*/
 function changeToPriority4(id){
     changePriority(4,id)
 }
@@ -44,6 +77,7 @@ function changeToPriority1(id){
     changePriority(1,id)
 }
 
+// may want to export this
 function changePriority(priorityNum,id){
     console.log("changePriority");
     /*backend*/
@@ -53,6 +87,7 @@ function changePriority(priorityNum,id){
     console.log("line52");
     let todo = project.getTodos()[i];
     todo.changePriority("priority "+priorityNum);
+
     console.log(todo);
     /*front-end*/
     let todoDOM = document.getElementById("status"+i);
@@ -100,6 +135,7 @@ window.changeToPriority4 = changeToPriority4;
 window.changeToPriority3 = changeToPriority3;
 window.changeToPriority2 = changeToPriority2;
 window.changeToPriority1 = changeToPriority1;
+window.toggleCompletion  = toggleCompletion;
 /*render Page needs access to hideShowMenu()*/
 
 

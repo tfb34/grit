@@ -1,13 +1,14 @@
+import saveData from './save';
 // todo.js
 /*
  * Summary: Returns an new instance of Todo
  * 
 */
-export default function Todo(task,dueDate,priority){
+export default function Todo(task,dueDate,priority,completion){
   this._task = task;
   this._dueDate = dueDate;
   this._priority = priority;
-  this._completion = false;
+  this._completion = completion;//false
 }
 
 // GET functions
@@ -23,7 +24,7 @@ Todo.prototype.getPriority = function(){
   return this._priority;
 }
 
-Todo.prototype.getCompletion = function(){
+Todo.prototype.getCompletionStatus = function(){
   return this._completion;
 }
 // EDIT functions
@@ -32,17 +33,20 @@ Todo.prototype.changeTask = function(newTask){
 }
 Todo.prototype.changePriority = function(newPriority){
   this._priority = newPriority;
+  saveData();
 }
 
 Todo.prototype.changeDueDate = function(newDueDate){
   this._dueDate = newDueDate;
+  saveData();
 }
 
-Todo.prototype.changeCompletion = function(){
+Todo.prototype.changeCompletionStatus = function(){
   if(this._completion){
     this._completion = false;
   }
   else{
     this._completion = true;
   }
+  saveData();
 }

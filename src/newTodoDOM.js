@@ -3,6 +3,7 @@ import Todo from './todo';
 //import createPriorityMenuButton from './priorityMenuButton';
 //import todoMenu from './todoMenu';
 import todoDom from './todoDOM';
+import saveData from './save';
 
 export default function handleNewTodo(){
     if(!_validate()){
@@ -11,6 +12,9 @@ export default function handleNewTodo(){
     }
 
     _createNewTodo();
+
+    saveData();
+    
     removeTaskForm();
 }
 
@@ -33,7 +37,7 @@ function _createNewTodo(){
 	// for now this date value will due
 	let today = new Date();
     console.log(today.toDateString());
-	let todo = new Todo(task, today.toDateString(), priority);
+	let todo = new Todo(task, today.toDateString(), priority, false);
     console.log(todo);
 	//add new element to project
     let project = projects.get(document.getElementById("project").innerHTML);

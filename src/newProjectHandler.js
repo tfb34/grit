@@ -1,11 +1,13 @@
 import hideShow from './hideShowMenu';
 import Project from './project';
+import saveData from './save';
 
 export default function newProjectHandler(){
     let form = document.getElementById("projectForm");
     if(validate(form)){
         let project = new Project(form[0].value);
         projects.add(project);
+        saveData();
         updateProjectDOMList();
         hideShow(form.id);
     }
