@@ -15,10 +15,10 @@ module.exports = (
 			list.push(project);
 		}
 
-		function remove(project){
+		function remove(projectName){
 			let index = 0;
 			while(index < list.length){
-				if(list[index].getName() === project.getName()){
+				if(list[index].getName() === projectName){
 					break;
 				}
 				index++;

@@ -17,7 +17,7 @@ export default function renderPage(projectName){
     _cleanPage();
     x.innerHTML = projectName;
     _displayTodos(projectName);
-
+    
 }
 
 /* Private. Removes all todos/tasks from page */

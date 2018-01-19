@@ -106,6 +106,17 @@ function getIndex(id){
     let index = parseInt(id.match(/(\d[\d\.]*)/g));
     return index;
 }
+
+function deleteProject(){
+    let projectName = document.getElementById('project').innerHTML;
+    console.log(projectName);
+    let answer = window.confirm("Are you sure you want to delete project "+projectName+"?");
+    console.log(answer);
+    if(answer){
+        projects.remove(projectName);
+    }
+    hideShow('settings');
+}
 /*window*/
 
 
@@ -136,6 +147,7 @@ window.changeToPriority3 = changeToPriority3;
 window.changeToPriority2 = changeToPriority2;
 window.changeToPriority1 = changeToPriority1;
 window.toggleCompletion  = toggleCompletion;
+window.deleteProject = deleteProject;
 /*render Page needs access to hideShowMenu()*/
 
 

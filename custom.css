@@ -106,6 +106,38 @@ header #date{
     height: 2.5em;
     z-index: 2;
 }
+#settings-icon{
+	position: fixed;		
+	top:0.4em;
+	right:1em;;
+	color:white;
+	cursor: pointer;
+}
+.settingsMenu {
+    width: 35%;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1em;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.4);
+    display: none;
+}
+#trash-bin-icon, #remove p{
+	color: grey;
+}
+#remove{
+	cursor: pointer;
+}
+#trash-bin-icon{
+	font-size: 1.2em;
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+#remove p{
+	font-size: 0.8em;
+	display: inline-block;
+}
 #menu h4{
 	margin-left: 2em;
 	text-decoration: underline;
