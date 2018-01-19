@@ -114,8 +114,12 @@ function deleteProject(){
     console.log(answer);
     if(answer){
         projects.remove(projectName);
+        saveData();
+        buildProjectMenu();
+        location.reload();
     }
     hideShow('settings');
+    /*render default page and build project menu again*/
 }
 /*window*/
 

@@ -71,7 +71,8 @@ module.exports = (
 			add,
 			get,
 			last,
-			initialize
+			initialize,
+			remove
 		}
 
 	}()

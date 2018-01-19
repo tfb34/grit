@@ -5,9 +5,9 @@
 // page load. localstorage may have to work with this later
 export default function buildProjectMenu(){
     let menu = document.getElementById("menu");
- 	let ul = createProjectDOMList();
-    let b = createAddProjectButton();
-    let f = createProjectForm();
+ 	let ul = _createProjectDOMList();
+    let b = _createAddProjectButton();
+    let f = _createProjectForm();
 
     menu.appendChild(ul);
     menu.appendChild(f);
@@ -17,7 +17,7 @@ export default function buildProjectMenu(){
  	menu.style.display ="none";
 }
 
-function createProjectDOMList(){
+function _createProjectDOMList(){
     let ul = document.createElement("ul");
     ul.setAttribute("id","projectList");
     for(let i = 0;i<projects.list.length;i++){
@@ -33,7 +33,7 @@ function createProjectDOMList(){
     }
     return ul;
 }
-function createAddProjectButton(){
+function _createAddProjectButton(){
      /*create + Add project button*/
     let s = document.createElement("span");
     let s2 = document.createElement("span");
@@ -52,7 +52,7 @@ function createAddProjectButton(){
 
 //2. create a form to add a new project< 2 inputs(type: text, button), 1 a link for cancel>
 // Returns a form for project
-function createProjectForm(){
+function _createProjectForm(){
     let form = document.createElement("form");
     form.setAttribute("id","projectForm");
 
