@@ -8,7 +8,8 @@ import Todo from './todo';
 
 module.exports = (
 	function(){
-
+		let inbox = new Project("Inbox");
+		let today = new Project("Today");
 		let list = [new Project("Shopping"), new Project("Work"), new Project("Errands"), new Project("Books to Read"), new Project("Movies to Watch")];
 
 		function add(project){
@@ -63,7 +64,7 @@ module.exports = (
                 }
 
 			}
-
+			/*get inbox and today*/
 		}
        
 		return{

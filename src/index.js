@@ -9,6 +9,7 @@ import handleNewTodo from './newTodoDOM';
 import newProjectHandler from './newProjectHandler';
 import buildProjectMenu from './buildProjectMenu';
 import saveData from './save';
+import getDate from '../node_modules/date-fns/get_date'
 //import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
@@ -152,6 +153,7 @@ window.changeToPriority2 = changeToPriority2;
 window.changeToPriority1 = changeToPriority1;
 window.toggleCompletion  = toggleCompletion;
 window.deleteProject = deleteProject;
+window.getDate = getDate;
 /*render Page needs access to hideShowMenu()*/
 
 
