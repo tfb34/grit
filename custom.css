@@ -322,6 +322,21 @@ z-index: 1;
 .todoMenuWrapper{
 	width:10%;
 }
-
+#Inbox{
+	margin-top: 1.3em;
+}
+#Today{
+	margin-top: 1em;
+}
+#Inbox, #Today{
+	margin-left: 2em;
+	cursor:pointer;
+}
+#Inbox i, #Inbox p{
+	display: inline-block;
+}
+#Inbox i{
+	vertical-align: bottom;
+}
 /* <= 400px*/
 }

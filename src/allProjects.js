@@ -8,9 +8,9 @@ import Todo from './todo';
 
 module.exports = (
 	function(){
-		let inbox = new Project("Inbox");
-		let today = new Project("Today");
-		let list = [new Project("Shopping"), new Project("Work"), new Project("Errands"), new Project("Books to Read"), new Project("Movies to Watch")];
+		//let inbox = new Project("Inbox");
+		//let today = new Project("Today");
+		let list = [new Project("Inbox"),new Project("Today"),new Project("Shopping"), new Project("Work"), new Project("Errands"), new Project("Books to Read"), new Project("Movies to Watch")];
 
 		function add(project){
 			list.push(project);
@@ -28,9 +28,12 @@ module.exports = (
 		}
 
 		function get(projectName){
+			console.log("inside get");
+
 			let x = list.filter(function(p){
 				return p.getName() === projectName;
 			});
+
 			return x[0];
 		}
 		function last(){
@@ -64,7 +67,7 @@ module.exports = (
                 }
 
 			}
-			/*get inbox and today*/
+			
 		}
        
 		return{

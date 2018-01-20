@@ -9,7 +9,8 @@ import handleNewTodo from './newTodoDOM';
 import newProjectHandler from './newProjectHandler';
 import buildProjectMenu from './buildProjectMenu';
 import saveData from './save';
-import getDate from '../node_modules/date-fns/get_date'
+//import getDate from '../node_modules/date-fns/get_date'
+const format = require('date-fns/format');
 //import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
@@ -129,6 +130,11 @@ function deleteProject(){
 document.onreadystatechange =function(){
 	if(document.readyState === "complete"){
 		buildProjectMenu();
+        renderPage("Today");
+        hideShow("menu");
+        console.log(
+            format(new Date(),'dddd DD MMMM')
+        );
 	}
 };
 
@@ -153,7 +159,7 @@ window.changeToPriority2 = changeToPriority2;
 window.changeToPriority1 = changeToPriority1;
 window.toggleCompletion  = toggleCompletion;
 window.deleteProject = deleteProject;
-window.getDate = getDate;
+
 /*render Page needs access to hideShowMenu()*/
 
 

@@ -20,7 +20,8 @@ export default function buildProjectMenu(){
 function _createProjectDOMList(){
     let ul = document.createElement("ul");
     ul.setAttribute("id","projectList");
-    for(let i = 0;i<projects.list.length;i++){
+    // do not include the first 2 projects 'inbox' and 'today'
+    for(let i = 2;i<projects.list.length;i++){
         let li = document.createElement("li");
         li.setAttribute("id",projects.list[i].getName());
 
