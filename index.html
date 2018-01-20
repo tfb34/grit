@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Todo List</title>
-	<link rel="stylesheet" type="text/css" href="custom.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../custom.css">
 	<script src="bundle.js"></script>
 </head>
 <body>
@@ -16,14 +17,23 @@
 				<div></div>
 				<div></div>
 			</div>
+			<i class="material-icons" id="settings-icon" onclick="hideShow('settings')">&#xe8b8;</i>
+			<div id="settings" class="settingsMenu">
+				<div id="remove" onclick="return deleteProject()">
+					<i id="trash-bin-icon" class="material-icons">&#xe872;</i>
+					<p>Delete project</p>
+				</div>
+			</div>
 		</div>
 		<div id="menu">
+			<div id="Inbox" onclick="renderPage(this.id)"><i class="material-icons">&#xe156;</i><p>Inbox</p></div>
+			<div id="Today" onclick="renderPage(this.id)"><p>Today</p></div>
 			<h4>Projects</h4>
 		</div>
 		
 
 		<header>
-			<p id="project">Today</p>
+			<p id="project"></p>
 			<p id="date">Wednesday 29 March</p>
 		</header>
 		
