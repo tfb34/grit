@@ -84,9 +84,7 @@ header #date{
 	display: inline-block;
 	vertical-align: middle;
 }
-.taskStatus:hover{
-	background-color: #B2B5BE;
-}
+
 .clearfix{
 	overflow: auto;
 }
@@ -340,3 +338,10 @@ z-index: 1;
 }
 /* <= 400px*/
 }
+
+/* for desktop 
+.taskStatus:hover{
+	background-color: #B2B5BE;
+}
+
+*/
