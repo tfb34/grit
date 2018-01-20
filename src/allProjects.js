@@ -62,8 +62,10 @@ module.exports = (
 				console.log(todos.length);
                 for(let x=0;x<todos.length;x++){
                 	let t = todos[x];
-                	let todo = new Todo(t._task,t._dueDate,t._priority,t._completion);
-                	project.addTodo(todo);
+                	if(!t._completion){
+	                	let todo = new Todo(t._task,t._dueDate,t._priority,t._completion);
+	                	project.addTodo(todo);
+              	    }
                 }
 
 			}
