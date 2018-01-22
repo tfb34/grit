@@ -239,7 +239,7 @@ header #date{
 	height: 35px;
 	border: 0.5px solid rgb(211, 205, 205);
 	border-radius: 4px;
-	width: 90%;
+	width: 55%;
 	padding-left: 1em;
 }
 /*
@@ -333,6 +333,9 @@ header #date{
 }
 #Inbox i{
 	vertical-align: bottom;
+}
+.formDateInput{
+	width:29%;
 }
 /* <= 400px*/
 }
