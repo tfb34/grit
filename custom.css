@@ -154,20 +154,18 @@ header #date{
     margin-left: 1em;
 }
 #menu{
-	/*background-color: white;
-	color:black;
-	width:100%;
-	display: none;*/
+	
 	background-color: white;
-color: black;
-width: 97%;
-display: none;
-box-shadow: 5px 7px 10px #888888;
-position: fixed;
-padding-top: 2.5em;
-overflow: auto;
-height:640px;
-z-index: 1;
+    color: black;
+    width: 97%;
+    display: none;
+    box-shadow: 5px 7px 10px #888888;
+    position: fixed;
+    padding-top: 2.5em;
+    overflow-y: scroll;
+    height:500px;
+    z-index: 1;
+    padding-bottom:100px;
 }
 #menu ul{
 	list-style: none;

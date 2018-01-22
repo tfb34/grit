@@ -64,6 +64,7 @@ function _createProjectForm(){
     textInput.setAttribute("maxlength","30");
     textInput.setAttribute("class","formTextInput");
     
+    
     let submitButton = document.createElement("input");
     submitButton.setAttribute("type","button");
     submitButton.setAttribute("id","AddProjectButton");
@@ -80,5 +81,12 @@ function _createProjectForm(){
     form.appendChild(textInput);
     form.appendChild(submitButton);
     form.appendChild(a);
+
+    /*may or may not work in firefox OR Chrome -_- . Remove if latter is true*/
+    //let projectTextBox = document.getElementById("projectTextBox");
+    //projectTextBox.autofocus = true;
+    /*
+        projectTextBox.focus();
+    */
     return form;
 }

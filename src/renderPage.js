@@ -53,7 +53,9 @@ function _cleanPage(){
 
 function _displayTodos(projectName){
     console.log("displayTodos called...");
+    console.log(projectName);
     let project = projects.get(projectName);
+    
     console.log("ok");
     console.log(project);
 
