@@ -23,14 +23,14 @@ function createTaskForm(){
 	inputTask.setAttribute("name","task");
 	inputTask.setAttribute("type", "text");
 	inputTask.setAttribute("placeholder","Practice guitar for 30mins");
-	inputTask.setAttribute("class","formTextInput");
+	inputTask.setAttribute("class","formTextInput formTaskInput");
 	inputTask.setAttribute("maxlength","100");
 	// date schedule
 	let dateInput = document.createElement("input");
 	dateInput.setAttribute("name","date");
 	dateInput.setAttribute("type","text");
 	dateInput.setAttribute("placeholder", "Schedule");
-	dateInput.setAttribute("class","formTextInput formDateInput");
+	dateInput.setAttribute("class","formTextInput formTaskInput formDateInput");
 	// priority select list
 	let selectPriority = document.createElement("select");// priority 'input'
 	selectPriority.id = "selectPriority";
