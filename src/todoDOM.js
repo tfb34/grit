@@ -1,4 +1,10 @@
 import todoMenu from './todoMenu';
+const format = require('date-fns/format');
+const isThisWeek = require('date-fns/is_this_week');
+const isToday = require('date-fns/is_today');
+const isTomorrow = require('date-fns/is_tomorrow');
+const isYesterday = require('date-fns/is_yesterday');
+const isPast = require('date-fns/is_past');
 /*Summary: these functions GENERATE or EDIT the tags/elements for
  * a todo object */
 
@@ -16,24 +22,30 @@ module.exports = (
 
 	        let innerDiv2 = _createTaskWrapper();
 
-	        let innerDiv3 = _createMenuWrapper(index);  
+	        let innerDiv3 = _createScheduleWrapper();
+
+	        let innerDiv4 = _createMenuWrapper(index);  
  
 
-	        let div = _createPriorityBubble(index);
+	        let div = _createPriorityBubble(index);// bubble
 	        innerDiv1.appendChild(div);
 	        _addPriorityColor(div,todo);
 
-	        let p = _createTaskElement(index,todo);
+	        let p = _createTaskElement(index,todo); // task
 	        innerDiv2.appendChild(p);
+
+	        let pSchedule = _createScheduleElement(todo);// due date
+	        innerDiv3.appendChild(pSchedule);
 	        //let f = createPriorityForm();
 	        let b = todoMenu.createTodoMenuButton();// import
-	        innerDiv3.appendChild(b);
+	        innerDiv4.appendChild(b);
 
 	        let f = todoMenu.createTodoMenu(index);
 
 	        li.appendChild(innerDiv1);
 	        li.appendChild(innerDiv2);
 	        li.appendChild(innerDiv3);
+	        li.appendChild(innerDiv4);
 	        li.appendChild(f);
 	        
 	        document.getElementById("list").appendChild(li);
@@ -52,14 +64,21 @@ module.exports = (
 	        innerDiv2.setAttribute("class","taskWrapper");
 	        return innerDiv2;
 		}
-		function _createMenuWrapper(index){
+
+		function _createScheduleWrapper(){
 			let innerDiv3 = document.createElement("div");
-	        innerDiv3.setAttribute("class","todoMenuWrapper");
+			innerDiv3.setAttribute("class","scheduleWrapper");
+			return innerDiv3;
+		}
+
+		function _createMenuWrapper(index){
+			let innerDiv4 = document.createElement("div");
+	        innerDiv4.setAttribute("class","todoMenuWrapper");
 	        // set identifier
 	        let todoID = "todoMenu"+index;
 	        let handler = "hideShow('"+todoID+"')";
-	        innerDiv3.setAttribute("onclick",handler);
-	        return innerDiv3;
+	        innerDiv4.setAttribute("onclick",handler);
+	        return innerDiv4;
 		}
 		function _createPriorityBubble(index){
 			let div = document.createElement("div");
@@ -77,6 +96,44 @@ module.exports = (
 	        return p;
 		}
 
+		function _createScheduleElement(todo){
+			let p = document.createElement("p");
+			let str = todo.getDueDate();
+			console.log("Testing if past element");
+			console.log(isPast(str));
+			if(!isToday(str) && isPast(str)){
+				p.setAttribute("class","red");
+			}else{
+				p.setAttribute("class","grey");
+			}
+			console.log(str);
+			// assume date has month day
+			if(str){// format it. 1) Jan 4 2) yesterday 3)tomorrow 4)Wednesday
+				if(!isThisWeek(str)){
+					console.log("not scheduled for this week");
+					str = format(str,"MMM D");
+				}
+				else if(isToday(str)){
+					console.log("isToday -> true");
+					str = "Today";
+				}else if(isYesterday(str)){
+					console.log("isYesterday -> true" );
+					str = "Yesterday";
+				}else if(isTomorrow(str)){
+					console.log("isTomorrow -> true");
+					str = "Tomorrow";
+				}else{
+					console.log("weekday");
+					str = format(str, "dddd");
+				}
+
+			}else{
+				console.log("no schedule = "+str);
+			}
+			p.innerHTML = str;// ''
+
+	        return p;
+		}
 		/*Adds color to identify level of importance*/
 		function _addPriorityColor(d,todo){
 		    let div = d.classList;

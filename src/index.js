@@ -9,8 +9,16 @@ import handleNewTodo from './newTodoDOM';
 import newProjectHandler from './newProjectHandler';
 import buildProjectMenu from './buildProjectMenu';
 import saveData from './save';
+
 //import getDate from '../node_modules/date-fns/get_date'
 const format = require('date-fns/format');
+const isValid = require('date-fns/is_valid');
+const parse = require('date-fns/parse');
+
+const isPast = require('date-fns/is_past');
+const isThisWeek = require('date-fns/is_this_week');
+const getYear = require('date-fns/get_year');
+const getMonth = require('date-fns/get_month')
 //import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
@@ -159,6 +167,14 @@ window.changeToPriority2 = changeToPriority2;
 window.changeToPriority1 = changeToPriority1;
 window.toggleCompletion  = toggleCompletion;
 window.deleteProject = deleteProject;
+//testing format
+window.format = format;
+window.isValid = isValid;
+window.parse = parse;
+window.isPast = isPast;
+window.isThisWeek = isThisWeek;
+window.getYear = getYear;
+window.getMonth = getMonth;
 
 /*render Page needs access to hideShowMenu()*/
 
