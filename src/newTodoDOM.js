@@ -1,7 +1,6 @@
 import removeTaskForm from './removeTaskForm';
 import Todo from './todo';
-//import createPriorityMenuButton from './priorityMenuButton';
-//import todoMenu from './todoMenu';
+
 import todoDom from './todoDOM';
 import saveData from './save';
 const isValid = require('date-fns/is_valid');
@@ -39,6 +38,7 @@ function _validate(){
     }
     return isValid;
 }
+
 // empty string is not valid
 function _validTask(str){
     console.log("_validTask called");
@@ -49,7 +49,6 @@ function _validTask(str){
     return bool;
 }
 
-// if no year 
 function _validSchedule(str){
     console.log("_validSchedule called");
     if(str.length === 0){// empty, no due date
@@ -57,8 +56,7 @@ function _validSchedule(str){
     }
     console.log("about to call isValid");
     console.log(str);
-    //console.log(str+" valid? "+isValid(str));
-    //parse string, if invalid
+    
     if(getYear(str) < getYear(new Date()) || !getYear(str)){// chrome, returns 2001, firefox return NaN
         str+= " 2018";
         console.log("Added 2018 at end of str.."+str);
@@ -74,20 +72,16 @@ function _validSchedule(str){
     }
     console.log("not valid date");
     return false;
-    //let v = isValid(str);
-    //console.log(v);
-    //return isValid(str);
 }
 
 
 function _createNewTodo(){
     console.log("createNewTodo");
-	//get values;
+	
 	let task = document.forms["taskForm"]["task"].value;
 
 	let sel = document.forms["taskForm"]["selectPriority"];
 	let priority = sel.options[sel.selectedIndex].text;
-	// for now this date value will due
     let schedule = document.forms["taskForm"]["date"].value;
     console.log("schedule = "+schedule);
 
@@ -96,23 +90,7 @@ function _createNewTodo(){
         schedule+= " 2018";
         console.log("Added 2018 at end of str.."+schedule);
     }
-    //if(getYear(schedule) < getYear(new Date())){
-        //console.log("yes!!!");
-        //schedule = getMonth(schedule)+1 + " "+getDate(schedule)+" "+getYear(new Date());
-        //console.log(schedule);
-   // }
-
-
-
-    //if(schedule){// check if date is valid using date-fns in _validate()
-        // transform given date
-    //}else{
-        //today = date fns today's date
-    //}
-	//let today = new Date();
-    //console.log(today.toDateString());
-    // the line below must change today.toDateString()
-	//let todo = new Todo(task, today.toDateString(), priority, false);
+    
     let todo = new Todo(task, schedule, priority, false);
 
     console.log(todo);
@@ -126,7 +104,6 @@ function _createNewTodo(){
 
 function generateTodoElement(todo){
     console.log("generateTodoElement");
-    /*Get identifier*/
     let project = projects.get(document.getElementById("project").innerHTML);
     let id = project.getTodos().length - 1;
     todoDom.renderTodoElement(id,todo);

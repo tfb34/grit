@@ -130,7 +130,7 @@ module.exports = (
 			}else{
 				console.log("no schedule = "+str);
 			}
-			p.innerHTML = str;// ''
+			p.innerHTML = str;//empty
 
 	        return p;
 		}
