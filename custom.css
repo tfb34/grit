@@ -7,7 +7,7 @@
 }
 
 /*mobile design*/
-@media only screen and (max-width: 450px){
+/*@media only screen and (max-width: 450px){/*640px*/
 
 body{
 	padding:0px;
@@ -163,7 +163,7 @@ header #date{
     position: fixed;
     padding-top: 2.5em;
     overflow-y: scroll;
-    height:500px;
+    height:300px;/*500px*/
     z-index: 1;
     padding-bottom:100px;
 }
@@ -359,7 +359,7 @@ header #date{
 	color: grey;
 }
 /* <= 400px*/
-}
+/*}  end of media query 450px*/
 
 /* for desktop 
 .taskStatus:hover{
@@ -367,3 +367,14 @@ header #date{
 }
 
 */
+
+@media only screen and (min-width: 600px){
+	header{
+	background-size: cover;
+	background-position-y: -30px;
+	}
+	header #project{
+		font-size: 2em;
+	}
+
+}
