@@ -84,9 +84,7 @@ header #date{
 	display: inline-block;
 	vertical-align: middle;
 }
-.taskStatus:hover{
-	background-color: #B2B5BE;
-}
+
 .clearfix{
 	overflow: auto;
 }
@@ -156,20 +154,18 @@ header #date{
     margin-left: 1em;
 }
 #menu{
-	/*background-color: white;
-	color:black;
-	width:100%;
-	display: none;*/
+	
 	background-color: white;
-color: black;
-width: 97%;
-display: none;
-box-shadow: 5px 7px 10px #888888;
-position: fixed;
-padding-top: 2.5em;
-overflow: auto;
-height:640px;
-z-index: 1;
+    color: black;
+    width: 97%;
+    display: none;
+    box-shadow: 5px 7px 10px #888888;
+    position: fixed;
+    padding-top: 2.5em;
+    overflow-y: scroll;
+    height:500px;
+    z-index: 1;
+    padding-bottom:100px;
 }
 #menu ul{
 	list-style: none;
@@ -204,19 +200,19 @@ z-index: 1;
 }
 .p1Color{
 	border:2px solid var(--p1);
-	background-color:rgb(219, 26, 52,0.2);
+	background-color:rgba(219, 26, 52,0.2);
 }
 .p2Color{
 	border:2px solid var(--p2);
-	background-color:rgb(244, 166, 9,0.2);
+	background-color:rgba(244, 166, 9,0.2);
 }
 .p3Color{
 	border:2px solid var(--p3);
-	background-color:rgb(249, 249, 84,0.2);
+	background-color:rgba(249, 249, 84,0.2);
 }
 .p4Color{
 	border:2px solid var(--p4);
-	background-color:rgb(229, 229, 222,0.2);
+	background-color:rgba(229, 229, 222,0.2);
 }
 .formButton{
 	background-color: var(--navbar-color);
@@ -243,7 +239,7 @@ z-index: 1;
 	height: 35px;
 	border: 0.5px solid rgb(211, 205, 205);
 	border-radius: 4px;
-	width: 90%;
+	width: 95%;
 	padding-left: 1em;
 }
 /*
@@ -262,13 +258,13 @@ z-index: 1;
 }
 /*priorityForm*/
 .todoMenuButton{
-	width: 30px;
+	/*width: 30px;*/
 	display: inline-block;
-	/*margin-left: 30%;*/
+	margin-left: 30%;
 	cursor: pointer;
 }
 .todoMenuButton div{
-	height:5px; width: 5px;
+	height:3px; width: 3px;
 	background-color: grey;
 	float: left;
 }
@@ -307,9 +303,17 @@ z-index: 1;
 .wrapper div:not(:last-child) {
     margin-right: 1.5em;
 }
-.statusWrapper, .taskWrapper, .todoMenuWrapper{
+.statusWrapper, .taskWrapper, .todoMenuWrapper, .scheduleWrapper{
 	display: inline-block;
 	box-sizing: border-box;
+}
+.scheduleWrapper{
+	width: 20%;
+	text-align: right;
+}
+.scheduleWrapper p{
+	font-size: 10px;
+	/*color:grey;*/
 }
 .statusWrapper{
 	vertical-align: top;
@@ -317,7 +321,10 @@ z-index: 1;
 	/*padding-left: 5%;*/
 }
 .taskWrapper{
-	width:80%;
+	width:60%;
+}
+.taskWrapper p{
+	font-size: 12px;
 }
 .todoMenuWrapper{
 	width:10%;
@@ -338,5 +345,25 @@ z-index: 1;
 #Inbox i{
 	vertical-align: bottom;
 }
+.formTaskInput{
+	width: 55%;
+	font-size: 12px;
+}
+.formDateInput{
+	width:29%;
+}
+.red{
+	color:red;
+}
+.grey{
+	color: grey;
+}
 /* <= 400px*/
 }
+
+/* for desktop 
+.taskStatus:hover{
+	background-color: #B2B5BE;
+}
+
+*/
