@@ -1,5 +1,6 @@
 import Project from './project';
 import Todo from './todo';
+const isToday = require('date-fns/is_today');
 /*
  * Summary: Creates a single 'projects' object to organize
  *         and keep track of 'Project' instances
@@ -55,19 +56,33 @@ module.exports = (
 				console.log(i);
 				let projectName = all_projects.list[i]._name;
 				let project = new Project(projectName);
-				console.log(project);
+				console.log("New project: "+project.getName());
 				list.push(project);
+			}
+
+			// add todos to project
+			let todayProject = get("Today");
+			console.log("List: "+list);
+			for(let i = 0; i<all_projects.list.length;i++){
+
+				console.log("List: "+list);
 				let todos = all_projects.list[i]._todos;
+				let project = list[i];
+				if(!(project.getName() === "Today")){
+				console.log("Adding todos inside: "+project);
 				console.log(todos);
 				console.log(todos.length);
                 for(let x=0;x<todos.length;x++){
                 	let t = todos[x];
                 	if(!t._completion){
-	                	let todo = new Todo(t._task,t._dueDate,t._priority,t._completion);
+	                	let todo = new Todo(t._task,t._dueDate,t._priority,t._completion,t._project);
 	                	project.addTodo(todo);
+	                	if(isToday(t._dueDate)){
+              	    		todayProject.addTodo(todo);
+              	    	}
               	    }
                 }
-
+            	}//end of if , today
 			}
 			
 		}

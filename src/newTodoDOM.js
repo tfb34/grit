@@ -7,6 +7,7 @@ const isValid = require('date-fns/is_valid');
 const parse = require('date-fns/parse');
 const getMonth = require('date-fns/get_month');
 const getDate = require('date-fns/get_date');
+const isToday = require('date-fns/is_today');
 //const isBefore = require('date-fns/is_before');
 
 export default function handleNewTodo(){
@@ -75,8 +76,9 @@ function _validSchedule(str){
 }
 
 
+/*creeate new todo and add to a project*/
 function _createNewTodo(){
-    console.log("createNewTodo");
+    console.log("createNewTodo called....");
 	
 	let task = document.forms["taskForm"]["task"].value;
 
@@ -91,21 +93,40 @@ function _createNewTodo(){
             console.log("Added 2018 at end of str.."+schedule);
         }
     }
-    
-    let todo = new Todo(task, schedule, priority, false);
+
+    let projectN = document.getElementById("project").innerHTML;
+    if(projectN === "Today"){
+        projectN = "Inbox";
+    }
+
+    let todo = new Todo(task, schedule, priority, false, projectN);
 
     console.log(todo);
 	//add new element to project
-    let project = projects.get(document.getElementById("project").innerHTML);
-    console.log("line39");
+    let project = projects.get(projectN);// runs for every valid todo
     project.addTodo(todo);
-    console.log("line41");
+
+    if(isToday(schedule)){
+        console.log("due date is Today");
+        project = projects.get("Today");
+        project.addTodo(todo);
+    }
+    //let project = projects.get(document.getElementById("project").innerHTML);
+
+    //project.addTodo(todo);
+    
     generateTodoElement(todo);
 }
 
+
 function generateTodoElement(todo){
     console.log("generateTodoElement");
+
     let project = projects.get(document.getElementById("project").innerHTML);
+    if(project.getName()==="Today" && !isToday(todo.getDueDate())){
+        console.log("DUE DATE IS NOT TODAY!!!!");
+        return;
+    }
     let id = project.getTodos().length - 1;
     todoDom.renderTodoElement(id,todo);
 }

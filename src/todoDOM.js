@@ -168,8 +168,7 @@ module.exports = (
 		}
 		/*public functions*/
 		return{
-			renderTodoElement,
-			
+			renderTodoElement
 		}
 	}()
 );

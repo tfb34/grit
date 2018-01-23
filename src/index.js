@@ -20,6 +20,7 @@ const isThisWeek = require('date-fns/is_this_week');
 const getYear = require('date-fns/get_year');
 const getMonth = require('date-fns/get_month');
 const getDate = require('date-fns/get_date');
+var isToday = require('date-fns/is_today');
 //import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
@@ -50,6 +51,8 @@ if(localStorage.getItem('projects')){
 
 
 // get the id, look up todo, update backend, add decoration
+/*check the todo's project. then check if current date is today remove it from today as well*/
+// when renderpage it should check if complete  = true. then add class to show that its been crossed out
 function toggleCompletion(id){
     console.log("toggleComplete...");
     console.log(id);
@@ -67,9 +70,10 @@ function toggleCompletion(id){
         p.style.textDecorationLine = "none";
     }else{
         p.style.textDecorationLine = "line-through";
-        li.style.backgroundColor = "rgb(226, 224, 224,0.5)";
+        li.style.backgroundColor = "rgba(226, 224, 224,0.5)";
     }
     todo.changeCompletionStatus();
+    
     console.log(todo.getCompletionStatus());
 }
 
@@ -117,6 +121,7 @@ function getIndex(id){
     let index = parseInt(id.match(/(\d[\d\.]*)/g));
     return index;
 }
+
 
 function deleteProject(){
     let projectName = document.getElementById('project').innerHTML;
@@ -177,6 +182,7 @@ window.isThisWeek = isThisWeek;
 window.getYear = getYear;
 window.getMonth = getMonth;
 window.getDate = getDate;
+window.isToday = isToday;
 /*render Page needs access to hideShowMenu()*/
 
 

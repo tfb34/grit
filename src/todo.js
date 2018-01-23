@@ -4,11 +4,12 @@ import saveData from './save';
  * Summary: Returns an new instance of Todo
  * 
 */
-export default function Todo(task,dueDate,priority,completion){
+export default function Todo(task,dueDate,priority,completion,project){
   this._task = task;
   this._dueDate = dueDate;
   this._priority = priority;
   this._completion = completion;//false
+  this._project = project; //if project is Today, dont' put project
 }
 
 // GET functions
@@ -26,6 +27,9 @@ Todo.prototype.getPriority = function(){
 
 Todo.prototype.getCompletionStatus = function(){
   return this._completion;
+}
+Todo.prototype.getProject = function(){
+  return this._project;
 }
 // EDIT functions
 Todo.prototype.changeTask = function(newTask){
