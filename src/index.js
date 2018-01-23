@@ -18,7 +18,8 @@ const parse = require('date-fns/parse');
 const isPast = require('date-fns/is_past');
 const isThisWeek = require('date-fns/is_this_week');
 const getYear = require('date-fns/get_year');
-const getMonth = require('date-fns/get_month')
+const getMonth = require('date-fns/get_month');
+const getDate = require('date-fns/get_date');
 //import todoDOM from './todoDOM';
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
@@ -175,7 +176,7 @@ window.isPast = isPast;
 window.isThisWeek = isThisWeek;
 window.getYear = getYear;
 window.getMonth = getMonth;
-
+window.getDate = getDate;
 /*render Page needs access to hideShowMenu()*/
 
 

@@ -49,6 +49,7 @@ function _validTask(str){
     return bool;
 }
 
+// if no year 
 function _validSchedule(str){
     console.log("_validSchedule called");
     if(str.length === 0){// empty, no due date
@@ -58,6 +59,11 @@ function _validSchedule(str){
     console.log(str);
     //console.log(str+" valid? "+isValid(str));
     //parse string, if invalid
+    if(getYear(str) < getYear(new Date()) || !getYear(str)){// chrome, returns 2001, firefox return NaN
+        str+= " 2018";
+        console.log("Added 2018 at end of str.."+str);
+    }
+
     let v;
     if(v = parse(str)){
         console.log(v);
@@ -67,6 +73,7 @@ function _validSchedule(str){
         }
     }
     console.log("not valid date");
+    return false;
     //let v = isValid(str);
     //console.log(v);
     //return isValid(str);
@@ -85,11 +92,18 @@ function _createNewTodo(){
     console.log("schedule = "+schedule);
 
 
-    if(getYear(schedule) < getYear(new Date())){
-        console.log("yes!!!");
-        schedule = getMonth(schedule)+1 + " "+getDate(schedule)+" "+getYear(new Date());
-        console.log(schedule);
+    if(getYear(schedule) < getYear(new Date()) || !getYear(schedule)){// chrome, returns 2001, firefox return NaN
+        schedule+= " 2018";
+        console.log("Added 2018 at end of str.."+schedule);
     }
+    //if(getYear(schedule) < getYear(new Date())){
+        //console.log("yes!!!");
+        //schedule = getMonth(schedule)+1 + " "+getDate(schedule)+" "+getYear(new Date());
+        //console.log(schedule);
+   // }
+
+
+
     //if(schedule){// check if date is valid using date-fns in _validate()
         // transform given date
     //}else{
