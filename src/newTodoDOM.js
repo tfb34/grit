@@ -85,10 +85,11 @@ function _createNewTodo(){
     let schedule = document.forms["taskForm"]["date"].value;
     console.log("schedule = "+schedule);
 
-
-    if(getYear(schedule) < getYear(new Date()) || !getYear(schedule)){// chrome, returns 2001, firefox return NaN
-        schedule+= " 2018";
-        console.log("Added 2018 at end of str.."+schedule);
+    if(schedule.length >0){
+        if(getYear(schedule) < getYear(new Date()) || !getYear(schedule)){// chrome, returns 2001, firefox return NaN
+            schedule+= " 2018";
+            console.log("Added 2018 at end of str.."+schedule);
+        }
     }
     
     let todo = new Todo(task, schedule, priority, false);
