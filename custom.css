@@ -1,13 +1,19 @@
 :root{
-	--navbar-color: orange;
+	--navbar-color: white;
 	--p4: grey;
 	--p3: yellow;
 	--p2: orange;
 	--p1: red;
+	--color1: blueviolet;
+	--color2: blue;
+	--color3: brown;
+	--color4: teal;
+	--color5: orange;
+	--color6: crimson;
 }
 
 /*mobile design*/
-@media only screen and (max-width: 450px){
+/*@media only screen and (max-width: 450px){/*640px*/
 
 body{
 	padding:0px;
@@ -42,7 +48,7 @@ header #date{
 }
 #AddTaskButton{
 	font-size: 30px;
-	background-color: #5178F0;
+	background-color: var(--navbar-color);
 	text-align: center;
 	width:40px;
 	height:40px;
@@ -54,7 +60,7 @@ header #date{
 	cursor: pointer;
 }
 #taskForm{
-	margin-left: 2em;
+	margin-left: 10%;/*2em*/
 	margin-bottom: 4em;
 }
 #selectPriority{
@@ -140,11 +146,17 @@ header #date{
 	margin-left: 2em;
 	text-decoration: underline;
 }
+#logo{
+	display: none;
+	margin-left: 5%;
+	margin-top: 0.5em;
+}
 #menu-button{
 	width: 50px;
 	cursor: pointer;
 	padding-top: 0.7em;
 	padding-bottom: 0.7em;
+	display: block;
 }
 #menu-button div:nth-child(-n+3) {
     width: 1.5em;
@@ -163,7 +175,7 @@ header #date{
     position: fixed;
     padding-top: 2.5em;
     overflow-y: scroll;
-    height:500px;
+    height:300px;/*500px*/
     z-index: 1;
     padding-bottom:100px;
 }
@@ -197,6 +209,7 @@ header #date{
 #projectForm{
 	padding-left: 2em;
 	margin-right: 2em;
+	display: none;
 }
 .p1Color{
 	border:2px solid var(--p1);
@@ -351,6 +364,8 @@ header #date{
 }
 .formDateInput{
 	width:29%;
+	/*new*/
+	margin-right: 6%;
 }
 .red{
 	color:red;
@@ -358,8 +373,50 @@ header #date{
 .grey{
 	color: grey;
 }
-/* <= 400px*/
+.bubble{
+	width:2em;
+	height:2em;
+	border-radius: 16px;
+	display: inline-block;
+	margin-right: 1em;
+	cursor: pointer;
 }
+.bubble:last-child{
+	margin-right: 0;
+}
+#color1{
+	background-color: var(--color1); 
+}
+#color2{
+	background-color: var(--color2); 
+}
+#color3{
+	background-color: var(--color3); 
+}
+#color4{
+	background-color: var(--color4); 
+}
+#color5{
+	background-color: var(--color5); 
+}
+#color6{
+	background-color: var(--color6);
+}
+#themeWrapper{
+	margin-top: 1em;
+}
+#themeWrapper p{
+	font-size: 14px;
+    margin-bottom: 1em;
+    color: grey;
+}
+#removeAllWrapper{
+	margin-top: 1em;
+    color: grey;
+    font-size: 14px;
+}
+/* <= 400px*/
+/*}  end of media query 450px*/
 
 /* for desktop 
 .taskStatus:hover{
@@ -367,3 +424,48 @@ header #date{
 }
 
 */
+
+@media only screen and (min-width: 600px){
+	header{
+	background-size: cover;
+	background-position-y: -30px;
+	}
+	header #project{
+		font-size: 2em;
+	}
+
+}
+
+@media only screen and (min-width: 700px){
+	#menu{
+		display: block;
+		position: relative;
+		height:100%;
+		/*box-shadow: 0px 0px 6px #888888;*/
+		box-shadow: 0px -10px 2px #888888;
+		overflow-y: unset;
+		width:100%;
+	}
+	.left-column{
+		width:30%;
+		float: left;
+		height:100%;
+	}
+	.right-column{
+		width:70%;
+		float:left;
+		height:100%;
+	}
+	.row::after{
+		display: table;
+		content: "";
+		clear:both;
+	}
+	#menu-button{
+		display: none;
+	}
+	#logo{
+		display: block;
+	}
+
+}
