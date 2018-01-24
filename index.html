@@ -10,8 +10,12 @@
 	<script src="bundle.js"></script>
 </head>
 <body>
-	<div id="right-column">
-		<div class="navbar">
+	<div class="navbar">
+
+			<div id="logo">
+				<a href="https://github.com/tfb34/todo-list" title="source code"><img src="assets/github-logo.png" alt="Icon made by Daniel Bruce from www.flaticon.com"></a>
+			</div>
+
 			<div id="menu-button" onclick="hideShow('menu')">
 				<div></div>
 				<div></div>
@@ -23,51 +27,32 @@
 					<i id="trash-bin-icon" class="material-icons">&#xe872;</i>
 					<p>Delete project</p>
 				</div>
+
+				<div id="themeWrapper">
+					<p>Change theme color</p>
+					<div class="bubble" id="color1" onclick="changeTheme(this.id)"></div><div class="bubble" id="color2" onclick="changeTheme(this.id)"></div><div class="bubble" id="color3" onclick="changeTheme(this.id)"></div><div class="bubble" id="color4" onclick="changeTheme(this.id)"></div><div class="bubble" id="color5" onclick="changeTheme(this.id)"></div><div class="bubble" id="color6" onclick="changeTheme(this.id)"></div>
+				</div>
 			</div>
-		</div>
+	</div>
+
+	<div class="row">
+	<div class="left-column">
 		<div id="menu">
 			<div id="Inbox" onclick="renderPage(this.id)"><i class="material-icons">&#xe156;</i><p>Inbox</p></div>
 			<div id="Today" onclick="renderPage(this.id)"><p>Today</p></div>
 			<h4>Projects</h4>
 		</div>
-		
-
+	</div>
+	<div class="right-column">
 		<header>
 			<p id="project"></p>
 			<p id="date">Wednesday 29 March</p>
 		</header>
 		
 		<ul id="list">
-			<li class="clearfix todo">
-				<div class="taskStatus"></div>
-				<p>Get groceries for dinner</p>
-				<p>Chores</p>
-			</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
-			<li>stuff</li>
 		</ul>
 		<div id="AddTaskButton" onclick="showTaskForm()">+</div>
+	</div>
 	</div>
 </body>
 </html>
