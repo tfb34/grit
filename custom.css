@@ -410,6 +410,11 @@ header #date{
     margin-bottom: 1em;
     color: grey;
 }
+#removeAllWrapper{
+	margin-top: 1em;
+    color: grey;
+    font-size: 14px;
+}
 /* <= 400px*/
 /*}  end of media query 450px*/
 

@@ -152,6 +152,15 @@ function changeTheme(id){
     html.style.setProperty("--navbar-color", color);
     saveColor(id);
 }
+
+function clearData(){
+    let answer = window.confirm("Are you sure you want to remove ALL data? ");
+    if(answer){
+        localStorage.removeItem('projects');
+        localStorage.removeItem('themeColor');
+        location.reload();
+    }
+}
 /*window*/
 
 
@@ -191,6 +200,7 @@ window.changeToPriority1 = changeToPriority1;
 window.toggleCompletion  = toggleCompletion;
 window.deleteProject = deleteProject;
 window.changeTheme = changeTheme;
+window.clearData = clearData;
 //testing format
 window.format = format;
 window.isValid = isValid;
