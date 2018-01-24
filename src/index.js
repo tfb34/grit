@@ -25,16 +25,23 @@ var isToday = require('date-fns/is_today');
 
 let priorities = ["priority 4", "priority 3", "priority 2", "priority 1"];
 
-if(localStorage.getItem('projects')){
+if(localStorage.getItem('projects') && localStorage.getItem('themeColor')){
     console.log("localStorage found");
     projects.initialize();
+    console.log(localStorage.getItem('themeColor'));
+
 }else{
     saveData();
+    localStorage.setItem("themeColor",JSON.stringify('color1'));
 }
 
 
 
+function saveColor(color){
+    console.log("saving color "+ color);
+    localStorage.setItem("themeColor",JSON.stringify(color));
 
+}
 //local storage works!
 // new features
 // allow user to destroy projects
@@ -137,6 +144,14 @@ function deleteProject(){
     hideShow('settings');
     /*render default page and build project menu again*/
 }
+
+function changeTheme(id){
+    let color = getComputedStyle(document.body).getPropertyValue('--'+id);
+    console.log("looking for color: "+color);
+    var html = document.getElementsByTagName('html')[0];
+    html.style.setProperty("--navbar-color", color);
+    saveColor(id);
+}
 /*window*/
 
 
@@ -149,6 +164,8 @@ document.onreadystatechange =function(){
         console.log(
             format(new Date(),'dddd DD MMMM')
         );
+
+        changeTheme(JSON.parse(localStorage.getItem('themeColor')));
 	}
 };
 
@@ -173,6 +190,7 @@ window.changeToPriority2 = changeToPriority2;
 window.changeToPriority1 = changeToPriority1;
 window.toggleCompletion  = toggleCompletion;
 window.deleteProject = deleteProject;
+window.changeTheme = changeTheme;
 //testing format
 window.format = format;
 window.isValid = isValid;

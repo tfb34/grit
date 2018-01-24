@@ -1,9 +1,15 @@
 :root{
-	--navbar-color: orange;
+	--navbar-color: white;
 	--p4: grey;
 	--p3: yellow;
 	--p2: orange;
 	--p1: red;
+	--color1: blueviolet;
+	--color2: blue;
+	--color3: brown;
+	--color4: teal;
+	--color5: orange;
+	--color6: crimson;
 }
 
 /*mobile design*/
@@ -42,7 +48,7 @@ header #date{
 }
 #AddTaskButton{
 	font-size: 30px;
-	background-color: #5178F0;
+	background-color: var(--navbar-color);
 	text-align: center;
 	width:40px;
 	height:40px;
@@ -367,6 +373,43 @@ header #date{
 .grey{
 	color: grey;
 }
+.bubble{
+	width:2em;
+	height:2em;
+	border-radius: 16px;
+	display: inline-block;
+	margin-right: 1em;
+	cursor: pointer;
+}
+.bubble:last-child{
+	margin-right: 0;
+}
+#color1{
+	background-color: var(--color1); 
+}
+#color2{
+	background-color: var(--color2); 
+}
+#color3{
+	background-color: var(--color3); 
+}
+#color4{
+	background-color: var(--color4); 
+}
+#color5{
+	background-color: var(--color5); 
+}
+#color6{
+	background-color: var(--color6);
+}
+#themeWrapper{
+	margin-top: 1em;
+}
+#themeWrapper p{
+	font-size: 14px;
+    margin-bottom: 1em;
+    color: grey;
+}
 /* <= 400px*/
 /*}  end of media query 450px*/
 
@@ -395,7 +438,8 @@ header #date{
 		height:100%;
 		/*box-shadow: 0px 0px 6px #888888;*/
 		box-shadow: 0px -10px 2px #888888;
-		overflow-y: none;
+		overflow-y: unset;
+		width:100%;
 	}
 	.left-column{
 		width:30%;

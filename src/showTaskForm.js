@@ -29,7 +29,7 @@ function createTaskForm(){
 	let dateInput = document.createElement("input");
 	dateInput.setAttribute("name","date");
 	dateInput.setAttribute("type","text");
-	dateInput.setAttribute("placeholder", "Schedule");
+	dateInput.setAttribute("placeholder", "Due Date");
 	dateInput.setAttribute("class","formTextInput formTaskInput formDateInput");
 	// priority select list
 	let selectPriority = document.createElement("select");// priority 'input'

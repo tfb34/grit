@@ -11,9 +11,11 @@
 </head>
 <body>
 	<div class="navbar">
+
 			<div id="logo">
 				<a href="https://github.com/tfb34/todo-list" title="source code"><img src="../assets/github-logo.png" alt="Icon made by Daniel Bruce from www.flaticon.com"></a>
 			</div>
+
 			<div id="menu-button" onclick="hideShow('menu')">
 				<div></div>
 				<div></div>
@@ -24,6 +26,11 @@
 				<div id="remove" onclick="return deleteProject()">
 					<i id="trash-bin-icon" class="material-icons">&#xe872;</i>
 					<p>Delete project</p>
+				</div>
+
+				<div id="themeWrapper">
+					<p>Change theme color</p>
+					<div class="bubble" id="color1" onclick="changeTheme(this.id)"></div><div class="bubble" id="color2" onclick="changeTheme(this.id)"></div><div class="bubble" id="color3" onclick="changeTheme(this.id)"></div><div class="bubble" id="color4" onclick="changeTheme(this.id)"></div><div class="bubble" id="color5" onclick="changeTheme(this.id)"></div><div class="bubble" id="color6" onclick="changeTheme(this.id)"></div>
 				</div>
 			</div>
 	</div>
