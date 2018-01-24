@@ -140,11 +140,17 @@ header #date{
 	margin-left: 2em;
 	text-decoration: underline;
 }
+#logo{
+	display: none;
+	margin-left: 5%;
+	margin-top: 0.5em;
+}
 #menu-button{
 	width: 50px;
 	cursor: pointer;
 	padding-top: 0.7em;
 	padding-bottom: 0.7em;
+	display: block;
 }
 #menu-button div:nth-child(-n+3) {
     width: 1.5em;
@@ -406,4 +412,11 @@ header #date{
 		content: "";
 		clear:both;
 	}
+	#menu-button{
+		display: none;
+	}
+	#logo{
+		display: block;
+	}
+
 }
