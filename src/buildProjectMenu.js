@@ -12,9 +12,10 @@ export default function buildProjectMenu(){
     menu.appendChild(ul);
     menu.appendChild(f);
     menu.appendChild(b);
+    /*
     document.getElementById("projectForm").style.display = "none";
 
- 	menu.style.display ="none";
+ 	menu.style.display ="none";*/
 }
 
 function _createProjectDOMList(){

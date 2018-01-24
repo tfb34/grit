@@ -7,7 +7,8 @@ function enableAddTaskButton(){
 
 
 export default function removeTaskForm(){
-	let body = document.getElementsByTagName('body')[0];
+	let body = document.getElementsByClassName('right-column')[0];
+
 	//let form = document.getElementsByTagName('form')[0];
 	let form = document.getElementById("taskForm");
 	body.removeChild(form);

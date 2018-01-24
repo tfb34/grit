@@ -70,7 +70,8 @@ function createTaskForm(){
 // figure out where to show form in DOM
 function showForm(form){
 	console.log("showing Form");
-	document.getElementsByTagName('body')[0].appendChild(form);
+	/*document.getElementsByTagName('body')[0].appendChild(form);*/
+	document.getElementsByClassName('right-column')[0].appendChild(form);
 };
 
 /*Private*/

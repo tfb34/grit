@@ -10,8 +10,7 @@
 	<script src="bundle.js"></script>
 </head>
 <body>
-	<div id="right-column">
-		<div class="navbar">
+	<div class="navbar">
 			<div id="menu-button" onclick="hideShow('menu')">
 				<div></div>
 				<div></div>
@@ -24,14 +23,17 @@
 					<p>Delete project</p>
 				</div>
 			</div>
-		</div>
+	</div>
+
+	<div class="row">
+	<div class="left-column">
 		<div id="menu">
 			<div id="Inbox" onclick="renderPage(this.id)"><i class="material-icons">&#xe156;</i><p>Inbox</p></div>
 			<div id="Today" onclick="renderPage(this.id)"><p>Today</p></div>
 			<h4>Projects</h4>
 		</div>
-		
-
+	</div>
+	<div class="right-column">
 		<header>
 			<p id="project"></p>
 			<p id="date">Wednesday 29 March</p>
@@ -40,6 +42,7 @@
 		<ul id="list">
 		</ul>
 		<div id="AddTaskButton" onclick="showTaskForm()">+</div>
+	</div>
 	</div>
 </body>
 </html>

@@ -54,7 +54,7 @@ header #date{
 	cursor: pointer;
 }
 #taskForm{
-	margin-left: 2em;
+	margin-left: 10%;/*2em*/
 	margin-bottom: 4em;
 }
 #selectPriority{
@@ -197,6 +197,7 @@ header #date{
 #projectForm{
 	padding-left: 2em;
 	margin-right: 2em;
+	display: none;
 }
 .p1Color{
 	border:2px solid var(--p1);
@@ -351,6 +352,8 @@ header #date{
 }
 .formDateInput{
 	width:29%;
+	/*new*/
+	margin-right: 6%;
 }
 .red{
 	color:red;
@@ -377,4 +380,29 @@ header #date{
 		font-size: 2em;
 	}
 
+}
+
+@media only screen and (min-width: 700px){
+	#menu{
+		display: block;
+		position: relative;
+		height:100%;
+		/*box-shadow: 0px 0px 6px #888888;*/
+		box-shadow: 0px -10px 2px #888888;
+	}
+	.left-column{
+		width:30%;
+		float: left;
+		height:100%;
+	}
+	.right-column{
+		width:70%;
+		float:left;
+		height:100%;
+	}
+	.row::after{
+		display: table;
+		content: "";
+		clear:both;
+	}
 }
