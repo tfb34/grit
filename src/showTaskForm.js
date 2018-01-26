@@ -28,7 +28,7 @@ function createTaskForm(){
 	// date schedule
 	let dateInput = document.createElement("input");
 	dateInput.setAttribute("name","date");
-	dateInput.setAttribute("type","text");
+	dateInput.setAttribute("type","date");
 	dateInput.setAttribute("placeholder", "Due Date");
 	dateInput.setAttribute("class","formTextInput formTaskInput formDateInput");
 	// priority select list
