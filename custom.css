@@ -67,6 +67,7 @@ header #date{
 	/*margin-left: 24%;*/
 	position: absolute;
 	right:7%;
+	margin-top: 0.6em;
 }
 #list{
 	list-style: none;
