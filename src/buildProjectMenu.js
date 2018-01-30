@@ -1,8 +1,4 @@
-//import projects from './allProjects';
-//import Project from './project';
-// creates a DOM list of current projects
-// should be called ONCE at the start of
-// page load. localstorage may have to work with this later
+
 export default function buildProjectMenu(){
     let menu = document.getElementById("menu");
  	let ul = _createProjectDOMList();
@@ -12,10 +8,6 @@ export default function buildProjectMenu(){
     menu.appendChild(ul);
     menu.appendChild(f);
     menu.appendChild(b);
-    /*
-    document.getElementById("projectForm").style.display = "none";
-
- 	menu.style.display ="none";*/
 }
 
 function _createProjectDOMList(){
@@ -36,7 +28,6 @@ function _createProjectDOMList(){
     return ul;
 }
 function _createAddProjectButton(){
-     /*create + Add project button*/
     let s = document.createElement("span");
     let s2 = document.createElement("span");
     let a = document.createElement("a");
@@ -52,8 +43,8 @@ function _createAddProjectButton(){
     return s;
 }
 
-//2. create a form to add a new project< 2 inputs(type: text, button), 1 a link for cancel>
-// Returns a form for project
+
+// Returns a form for creating a new project
 function _createProjectForm(){
     let form = document.createElement("form");
     form.setAttribute("id","projectForm");
@@ -83,11 +74,5 @@ function _createProjectForm(){
     form.appendChild(submitButton);
     form.appendChild(a);
 
-    /*may or may not work in firefox OR Chrome -_- . Remove if latter is true*/
-    //let projectTextBox = document.getElementById("projectTextBox");
-    //projectTextBox.autofocus = true;
-    /*
-        projectTextBox.focus();
-    */
     return form;
 }

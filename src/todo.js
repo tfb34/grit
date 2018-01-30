@@ -1,5 +1,6 @@
 import saveData from './save';
 // todo.js
+
 /*
  * Summary: Returns an new instance of Todo
  * 
@@ -9,7 +10,7 @@ export default function Todo(task,dueDate,priority,completion,project){
   this._dueDate = dueDate;
   this._priority = priority;
   this._completion = completion;//false
-  this._project = project; //if project is Today, dont' put project
+  this._project = project; 
 }
 
 // GET functions

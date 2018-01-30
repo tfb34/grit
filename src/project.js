@@ -1,6 +1,5 @@
 import Todo from './todo';
 
-// project.js
 /*
  *   Summary: Returns a new instance of a 'Project'
  *   @params: name

@@ -5,14 +5,17 @@ const isToday = require('date-fns/is_today');
 const isTomorrow = require('date-fns/is_tomorrow');
 const isYesterday = require('date-fns/is_yesterday');
 const isPast = require('date-fns/is_past');
-/*Summary: these functions GENERATE or EDIT the tags/elements for
- * a todo object */
+
+/**
+ * Summary: these functions GENERATE or EDIT the tags/elements for
+ * a todo object 
+ *
+ */
 
 module.exports = (
 	function(){
 		
 		function renderTodoElement(index, todo){
-			console.log("generateTodoElement called...");
 
 	        let li = document.createElement("li");
 	        li.setAttribute("class","clearfix todo");
@@ -99,42 +102,37 @@ module.exports = (
 		function _createScheduleElement(todo){
 			let p = document.createElement("p");
 			let str = todo.getDueDate();
-			console.log("Testing if past element");
-			console.log(isPast(str));
+			
 			if(!isToday(str) && isPast(str)){
 				p.setAttribute("class","red");
 			}else{
 				p.setAttribute("class","grey");
 			}
-			console.log(str);
+			
 			// assume date has month day
 			if(str){// format it. 1) Jan 4 2) yesterday 3)tomorrow 4)Wednesday
 				if(!isThisWeek(str)){
-					console.log("not scheduled for this week");
 					str = format(str,"MMM D");
 				}
 				else if(isToday(str)){
-					console.log("isToday -> true");
 					str = "Today";
 				}else if(isYesterday(str)){
-					console.log("isYesterday -> true" );
 					str = "Yesterday";
 				}else if(isTomorrow(str)){
-					console.log("isTomorrow -> true");
 					str = "Tomorrow";
 				}else{
-					console.log("weekday");
 					str = format(str, "dddd");
 				}
 
 			}else{
 				console.log("no schedule = "+str);
 			}
-			p.innerHTML = str;//empty
+			p.innerHTML = str;
 
 	        return p;
 		}
-		/*Adds color to identify level of importance*/
+
+		// Adds initially selected color to identify level of importance
 		function _addPriorityColor(d,todo){
 		    let div = d.classList;
 		    let p = todo.getPriority();
@@ -148,14 +146,12 @@ module.exports = (
 		    }else{
 		        div.add("p4Color");
 		    }
-		    console.log(div);
 
 		}
 
-		/*display indication that todo has been completed*/
+		// display indication that todo has been completed
 		function _editTodoStatus(p,index,todo){
-			console.log("_editTodoStatus..");
-			console.log(todo.getCompletionStatus());
+	
 			let li = document.getElementById("todo"+index);
 	        if(todo.getCompletionStatus()){//true, undo 
         		li.style.backgroundColor = "rgb(226, 224, 224,0.5)";
@@ -164,8 +160,8 @@ module.exports = (
         		p.style.textDecorationLine = "none";
         		li.style.backgroundColor = "white";
     		}
-    		console.log(todo.getCompletionStatus());
 		}
+		
 		/*public functions*/
 		return{
 			renderTodoElement

@@ -1,15 +1,15 @@
 import hideShow from './hideShowMenu';
 import todoDOM from './todoDOM';
 const format = require('date-fns/format');
-//import createPriorityMenuButton from './priorityMenuButton';
 
 
 /* 
  *  @params: project name
  *  Generates tags/elements in DOM to showcase todos under given project
 */
+
 export default function renderPage(projectName){
-    console.log("You clicked on "+projectName);
+
     hideShow("menu");
     let x = document.getElementById('project');
     if(x.innerHTML === projectName){
@@ -30,7 +30,6 @@ export default function renderPage(projectName){
 }
 
 function _setupDate(){
-    console.log("setupDate called");
     document.getElementById('date').innerHTML = format(new Date(),'dddd DD MMMM');
 }
 
@@ -52,13 +51,8 @@ function _cleanPage(){
 
 
 function _displayTodos(projectName){
-    console.log("displayTodos called...");
-    console.log(projectName);
+   
     let project = projects.get(projectName);
-    
-    console.log("ok");
-    console.log(project);
-
     let todos = project.getTodos();
 
     for(let index=0;index<todos.length;index++){

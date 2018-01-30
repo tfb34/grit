@@ -13,7 +13,6 @@
 }
 
 /*mobile design*/
-/*@media only screen and (max-width: 450px){/*640px*/
 
 body{
 	padding:0px;
@@ -243,14 +242,7 @@ header #date{
 	cursor:pointer;
 	font-size: 13px;
 }
-/*
-#projectTextBox{
-	height: 35px;
-	border: 0.5px solid rgb(211, 205, 205);
-	border-radius: 4px;
-	width: 80%;
-	padding-left: 1em;
-}*/
+
 .formTextInput{
 	height: 35px;
 	border: 0.5px solid rgb(211, 205, 205);
@@ -258,12 +250,7 @@ header #date{
 	width: 95%;
 	padding-left: 2%;
 }
-/*
-#projectForm a{
-	text-decoration: none;
-	color: black;
-	font-size: 13px;
-}*/
+
 .cancelButton{
 	text-decoration: none;
 	color: black;
@@ -418,15 +405,7 @@ header #date{
     color: grey;
     font-size: 14px;
 }
-/* <= 400px*/
-/*}  end of media query 450px*/
 
-/* for desktop 
-.taskStatus:hover{
-	background-color: #B2B5BE;
-}
-
-*/
 
 @media only screen and (min-width: 600px){
 	header{

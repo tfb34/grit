@@ -4,13 +4,12 @@ import saveData from './save';
 
 export default function newProjectHandler(){
     let form = document.getElementById("projectForm");
-    console.log("newProjectHandler..."+form);
+    
     if(validate(form)){
         let project = new Project(form[0].value);
         projects.add(project);
         saveData();
         updateProjectDOMList();
-        console.log("calling hideShow" +form.id);
         hideShow(form.id);
     }
 }
