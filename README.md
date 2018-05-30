@@ -41,12 +41,16 @@ $ npm install babel-core babel-loader babel-preset-env --save-dev
 ```
 $ npm install date-fns --save
 ```
+4. Make your saved changes inside /src
 
-4. Run 'npx webpack' :
+5. Run 'npx webpack' to create a new bundle.js :
 
 ```
 $ npx webpack
+
 ```
+
+6. Now, whenever you make any saved changes inside /src, just run 'npx webpack'.
 
 ## Deployment
 
