@@ -13,7 +13,6 @@
 }
 
 /*mobile design*/
-/*@media only screen and (max-width: 450px){/*640px*/
 
 body{
 	padding:0px;
@@ -50,14 +49,14 @@ header #date{
 	font-size: 30px;
 	background-color: var(--navbar-color);
 	text-align: center;
-	width:40px;
-	height:40px;
 	position: fixed;
 	bottom: 5%;
 	right:5%;
 	color:white;
-	border-radius: 20px;
+	border-radius: 50px;
 	cursor: pointer;
+	padding:2px 10px 2px 10px;
+	font-weight: bold;
 }
 #taskForm{
 	margin-left: 10%;/*2em*/
@@ -154,6 +153,11 @@ header #date{
 	margin-left: 5%;
 	margin-top: 0.5em;
 }
+#logo img{
+	height:45px;
+	position: absolute;
+	top:0;
+}
 #menu-button{
 	width: 50px;
 	cursor: pointer;
@@ -243,14 +247,7 @@ header #date{
 	cursor:pointer;
 	font-size: 13px;
 }
-/*
-#projectTextBox{
-	height: 35px;
-	border: 0.5px solid rgb(211, 205, 205);
-	border-radius: 4px;
-	width: 80%;
-	padding-left: 1em;
-}*/
+
 .formTextInput{
 	height: 35px;
 	border: 0.5px solid rgb(211, 205, 205);
@@ -258,12 +255,7 @@ header #date{
 	width: 95%;
 	padding-left: 2%;
 }
-/*
-#projectForm a{
-	text-decoration: none;
-	color: black;
-	font-size: 13px;
-}*/
+
 .cancelButton{
 	text-decoration: none;
 	color: black;
@@ -418,15 +410,7 @@ header #date{
     color: grey;
     font-size: 14px;
 }
-/* <= 400px*/
-/*}  end of media query 450px*/
 
-/* for desktop 
-.taskStatus:hover{
-	background-color: #B2B5BE;
-}
-
-*/
 
 @media only screen and (min-width: 600px){
 	header{
