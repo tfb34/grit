@@ -153,6 +153,11 @@ header #date{
 	margin-left: 5%;
 	margin-top: 0.5em;
 }
+#logo img{
+	height:45px;
+	position: absolute;
+	top:0;
+}
 #menu-button{
 	width: 50px;
 	cursor: pointer;
