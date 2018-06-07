@@ -1,4 +1,4 @@
-# todo-list
+# grit
 A personal time and task management web application. Allows user to create 'todos', which mainly consist of a task and due date. Users may also create new projects to better organize their tasks. The default 'today' project will automatically consist of all your tasks due on the current day. No sign up is needed!
 
 ## Getting Started
