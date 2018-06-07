@@ -54,7 +54,7 @@ $ npx webpack
 
 ## Deployment
 
-<a href="https://tfb34.github.io/todo-list/">Open in browser</a>
+<a href="https://tfb34.github.io/grit/">Open in browser</a>
 
 ## Built With
 
